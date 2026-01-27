@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petalbe Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Yantramanav:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Yantramanav', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://i.imgur.com/JkL4dCm.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding-left: 60px;
+        }
+
+        .company-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-of-type(odd) {
+            background: #ffffff;
+            color: #333333;
+        }
+
+        section:nth-of-type(even) {
+            background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        section:nth-of-type(odd) .pillar-card {
+            background: rgba(34, 49, 63, 0.05);
+            border: 1px solid rgba(34, 49, 63, 0.1);
+        }
+
+        section:nth-of-type(even) .pillar-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .pillar-card p {
+            opacity: 0.8;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .product-showcase {
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        section:nth-of-type(odd) .product-showcase {
+            background: rgba(34, 49, 63, 0.05);
+            border: 1px solid rgba(34, 49, 63, 0.1);
+        }
+
+        section:nth-of-type(even) .product-showcase {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .product-showcase h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .product-note {
+            margin-top: 30px;
+            padding-top: 30px;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        section:nth-of-type(odd) .product-note {
+            border-top: 1px solid rgba(34, 49, 63, 0.1);
+        }
+
+        section:nth-of-type(even) .product-note {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-simple {
+            max-width: 700px;
+        }
+
+        .contact-simple h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .contact-simple a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .contact-simple a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
+            color: #ffffff;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .company-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <h1 class="company-name">PETALBE TECHNOLOGIES</h1>
+            <p class="tagline">Human-centred digital products inspired by science, nature, and design.</p>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Philosophy</h2>
+                <p>At Petalbe Technologies, we believe the most powerful technology does not dominate human behaviour. It supports it.</p>
+                <p>Our products are shaped by biological rhythms, behavioural science, and a deep respect for human experience. We design for clarity, calm, and long-term impact, not short-term engagement.</p>
+                <p>We draw inspiration from natural systems, scientific insight, and human-centred design to create digital experiences that feel supportive.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>What We Build</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h3>Wellbeing Tools</h3>
+                        <p>Human-centred applications supporting physical and mental resilience in everyday life.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Science-Driven Systems</h3>
+                        <p>Products grounded in research, data intelligence, and evidence-based design principles.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Thoughtful Experiences</h3>
+                        <p>Calm, intuitive, and beautiful interfaces that respect attention and cognitive space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Our Products</h2>
+                <div class="product-showcase">
+                    <h3>Mera. Adaptive Fasting & Keto</h3>
+                    <p>Mera is a cycle-aware fasting and nutrition app designed to support metabolic health and hormonal balance for women.</p>
+                    <p>Built on the principles of biological rhythm awareness, sustainability, and personal adaptability, Mera empowers users to develop a healthier relationship with food, energy, and their body.</p>
+                    <p class="product-note">Additional products are currently in development.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Privacy & Ethics</h2>
+                <p>We design with privacy-first principles and a responsible approach to data and artificial intelligence.</p>
+                <p>User trust is fundamental to everything we build. We are committed to transparent data practices and compliance with applicable data protection regulations.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-simple">
+                    <h3>Petalbe Technologies</h3>
+                    <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Petalbe Technologies. All rights reserved.</p>
+            <div style="margin-top: 15px;">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        const img = new Image();
+        img.onload = function() {
+            header.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.imgur.com/JkL4dCm.jpeg')`;
+        };
+    </script>
+</body>
+</html>

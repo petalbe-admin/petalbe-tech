@@ -33,7 +33,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('https://i.imgur.com/JkL4dCm.jpeg');
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%2322313F" width="1920" height="1080"/></svg>');
             background-size: cover;
             background-position: center;
             color: #ffffff;
@@ -256,9 +256,9 @@
         <section>
             <div class="container">
                 <h2>Philosophy</h2>
-                <p>At Petalbe Technologies, we believe the most powerful technology does not dominate human behaviour. It supports it.</p>
+                <p>At Petalbe Technologies, we believe the most powerful technology does not dominate human behaviour — it supports it.</p>
                 <p>Our products are shaped by biological rhythms, behavioural science, and a deep respect for human experience. We design for clarity, calm, and long-term impact, not short-term engagement.</p>
-                <p>We draw inspiration from natural systems, scientific insight, and human-centred design to create digital experiences that feel supportive.</p>
+                <p>We draw inspiration from natural systems, scientific insight, and human-centred design to create digital experiences that feel supportive rather than intrusive.</p>
             </div>
         </section>
 
@@ -267,7 +267,7 @@
                 <h2>What We Build</h2>
                 <div class="pillars-grid">
                     <div class="pillar-card">
-                        <h3>Wellbeing Tools</h3>
+                        <h3>Health & Wellbeing Tools</h3>
                         <p>Human-centred applications supporting physical and mental resilience in everyday life.</p>
                     </div>
                     <div class="pillar-card">
@@ -275,7 +275,7 @@
                         <p>Products grounded in research, data intelligence, and evidence-based design principles.</p>
                     </div>
                     <div class="pillar-card">
-                        <h3>Thoughtful Experiences</h3>
+                        <h3>Thoughtful Digital Experiences</h3>
                         <p>Calm, intuitive, and beautiful interfaces that respect attention and cognitive space.</p>
                     </div>
                 </div>
@@ -286,7 +286,7 @@
             <div class="container">
                 <h2>Our Products</h2>
                 <div class="product-showcase">
-                    <h3>Mera. Adaptive Fasting & Keto</h3>
+                    <h3>Mera — Adaptive Fasting & Wellness</h3>
                     <p>Mera is a cycle-aware fasting and nutrition app designed to support metabolic health and hormonal balance for women.</p>
                     <p>Built on the principles of biological rhythm awareness, sustainability, and personal adaptability, Mera empowers users to develop a healthier relationship with food, energy, and their body.</p>
                     <p class="product-note">Additional products are currently in development.</p>
@@ -315,7 +315,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; Petalbe Technologies. All rights reserved.</p>
+            <p style="text-align: center;">&copy; Petalbe Technologies. All rights reserved.</p>
             <div style="margin-top: 15px;">
                 <a href="#privacy">Privacy Policy</a>
                 <a href="#terms">Terms of Use</a>
@@ -324,11 +324,13 @@
     </footer>
 
     <script>
+        // Replace placeholder background with actual image
         const header = document.querySelector('header');
         const img = new Image();
         img.onload = function() {
-            header.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.imgur.com/JkL4dCm.jpeg')`;
+            header.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('YOUR_IMAGE_URL_HERE')`;
         };
+        // You'll need to upload your image and replace YOUR_IMAGE_URL_HERE with the actual URL
     </script>
 </body>
 </html>

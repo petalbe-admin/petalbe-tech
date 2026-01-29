@@ -1,0 +1,120 @@
+/* Custom Klaro Styles for Petalbe Technologies */
+/* Overrides the default Klaro styles to match brand colors */
+
+/* Main cookie notice banner */
+.klaro .cookie-notice {
+    background: linear-gradient(135deg, #22313F 0%, #1a2633 100%) !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.klaro .cookie-notice .cn-body {
+    color: #ffffff !important;
+}
+
+.klaro .cookie-notice .cn-body p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Learn more link */
+.klaro .cookie-notice .cn-learn-more {
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.klaro .cookie-notice .cn-learn-more:hover {
+    opacity: 0.8 !important;
+}
+
+/* Buttons */
+.klaro .cookie-notice .cn-buttons button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.klaro .cookie-notice .cn-buttons button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Accept button - slightly more prominent */
+.klaro .cookie-notice .cn-buttons button.cm-btn-success {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.klaro .cookie-notice .cn-buttons button.cm-btn-success:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Modal (when user clicks to customize) */
+.klaro .cookie-modal {
+    background: #ffffff !important;
+}
+
+.klaro .cookie-modal .cm-header {
+    background: linear-gradient(135deg, #22313F 0%, #1a2633 100%) !important;
+    color: #ffffff !important;
+    border-bottom: none !important;
+}
+
+.klaro .cookie-modal .cm-body {
+    color: #333333 !important;
+}
+
+/* Modal buttons */
+.klaro .cookie-modal .cm-footer button {
+    background: rgba(34, 49, 63, 0.05) !important;
+    color: #22313F !important;
+    border: 1px solid rgba(34, 49, 63, 0.1) !important;
+    border-radius: 4px !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.klaro .cookie-modal .cm-footer button:hover {
+    background: rgba(34, 49, 63, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.klaro .cookie-modal .cm-footer button.cm-btn-success {
+    background: linear-gradient(135deg, #22313F 0%, #1a2633 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.klaro .cookie-modal .cm-footer button.cm-btn-success:hover {
+    opacity: 0.9 !important;
+}
+
+/* Switches in modal */
+.klaro .cookie-modal .cm-switch input:checked + .slider {
+    background: #22313F !important;
+}
+
+/* Close button */
+.klaro .cookie-modal .cm-btn-close {
+    color: #ffffff !important;
+}
+
+.klaro .cookie-modal .cm-btn-close:hover {
+    opacity: 0.8 !important;
+}
+
+/* Service descriptions */
+.klaro .cookie-modal .cm-app-description {
+    color: rgba(51, 51, 51, 0.8) !important;
+}
+
+/* Purposes badges */
+.klaro .cookie-modal .cm-purpose {
+    background: rgba(34, 49, 63, 0.1) !important;
+    color: #22313F !important;
+    border-radius: 3px !important;
+    padding: 3px 8px !important;
+    font-size: 0.85em !important;
+}

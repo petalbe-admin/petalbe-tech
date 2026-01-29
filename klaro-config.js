@@ -26,25 +26,41 @@ var klaroConfig = {
     translations: {
         de: {
             consentModal: {
-                description: 'Hier können Sie einsehen und anpassen, welche Informationen wir über Sie sammeln.',
+                description: 'Wir respektieren Ihre Privatsphäre. Sie können wählen, welche Dienste Sie zulassen möchten.',
+            },
+            consentNotice: {
+                description: 'We respect your privacy. We use optional analytics to understand how our website is used and improve your experience.',
+                learnMore: 'Learn more',
             },
             googleAnalytics: {
-                description: 'Sammlung von Besucherstatistiken',
+                description: 'Anonymisierte Besucherstatistiken zur Verbesserung der Website',
             },
             purposes: {
-                analytics: 'Besucher-Statistiken',
+                analytics: 'Website-Analyse',
             },
+            acceptAll: 'Accept',
+            acceptSelected: 'Accept selected',
+            decline: 'Decline',
+            ok: 'OK',
         },
         en: {
             consentModal: {
-                description: 'Here you can see and customize the information that we collect about you.',
+                description: 'We respect your privacy. You can choose which services to enable.',
+            },
+            consentNotice: {
+                description: 'We respect your privacy. We use optional analytics to understand how our website is used and improve your experience.',
+                learnMore: 'Learn more',
             },
             googleAnalytics: {
-                description: 'Collection of visitor statistics',
+                description: 'Anonymized visitor statistics to improve the website',
             },
             purposes: {
-                analytics: 'Visitor statistics',
+                analytics: 'Website analytics',
             },
+            acceptAll: 'Accept',
+            acceptSelected: 'Accept selected',
+            decline: 'Decline',
+            ok: 'OK',
         },
     },
     

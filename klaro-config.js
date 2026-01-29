@@ -1,47 +1,32 @@
 // Klaro configuration
 var klaroConfig = {
-    // We use a cookie to remember the user's consent choices
     cookieName: 'klaro-consent',
-    
-    // How long the consent cookie should last (in days)
     cookieExpiresAfterDays: 365,
-    
-    // Your privacy policy URL
     privacyPolicy: '/privacypolicy.html',
     
-    // Default state - false means cookies are OFF by default (recommended for GDPR)
-    default: false,
-    
-    // Make the consent banner show up on page load
+    // Use the simpler notice style
     mustConsent: true,
+    acceptAll: true,
     
-    // Position of the consent notice
-    position: 'bottom-right', // Options: 'top', 'bottom', 'bottom-left', 'bottom-right'
-    
-    // Language translations
     translations: {
         en: {
             consentNotice: {
-                description: 'We use cookies to improve your experience on our website. You can customize your preferences below.',
+                description: 'We use cookies to analyze site traffic and improve your experience.',
             },
-            purposes: {
-                analytics: 'Analytics',
-                marketing: 'Marketing',
-            },
+            acceptAll: 'Accept all',
+            acceptSelected: 'Accept selected',
+            decline: 'Decline',
         },
     },
     
-    // List of services/cookies you use
     services: [
         {
-            name: 'google-analytics',
-            title: 'Google Analytics',
+            name: 'analytics',
+            title: 'Analytics',
             purposes: ['analytics'],
             required: false,
-            optOut: false,
             default: false,
-            description: 'We use Google Analytics to understand how visitors use our website.',
+            description: 'Helps us understand how visitors use our website.',
         },
-        // Add more services here if you use other tracking tools
     ],
 };

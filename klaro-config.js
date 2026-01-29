@@ -19,7 +19,7 @@ var klaroConfig = {
         },
     },
     
-    services: services: [
+    services: [
         {
             name: 'google-analytics',
             title: 'Google Analytics',

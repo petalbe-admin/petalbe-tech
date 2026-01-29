@@ -20,7 +20,7 @@ var klaroConfig = {
     hideDeclineAll: false, // Show "Decline All" button
     
     // Language
-    lang: 'de',
+    lang: 'en',
     
     // Translations
     translations: {

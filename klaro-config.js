@@ -19,14 +19,15 @@ var klaroConfig = {
         },
     },
     
-    services: [
+    services: services: [
         {
-            name: 'analytics',
-            title: 'Analytics',
+            name: 'google-analytics',
+            title: 'Google Analytics',
             purposes: ['analytics'],
             required: false,
+            optOut: false,
             default: false,
-            description: 'Helps us understand how visitors use our website.',
+            description: 'We use Google Analytics to understand how visitors use our website.',
         },
     ],
 };

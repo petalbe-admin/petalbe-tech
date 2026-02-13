@@ -142,20 +142,28 @@
         <p class="last-updated">Last Updated: February 13, 2025</p>
 
         <div class="intro">
-            <p><strong>Your privacy matters.</strong> Mera is designed with privacy at its core. We process all your vocabulary and learning data locally on your device using Apple's secure infrastructure. We don't collect, sell, or share your personal information with third parties for marketing or advertising purposes.</p>
-        </div>
-
-        <div class="privacy-badge">
-            <p style="margin: 0;"><strong>✓ Privacy-First Design</strong></p>
-            <p style="margin-top: 10px; margin-bottom: 0;">All vocabulary processing happens locally on your device. Your data syncs securely through Apple's iCloud using your Apple ID. We never see your personal learning data.</p>
+            <p><strong>Your privacy matters.</strong> Mera is designed with privacy at its core - all vocabulary processing happens locally on your device, and your data syncs securely through Apple's iCloud. We never see your personal learning data, and we don't collect, sell, or share your information with third parties for marketing or advertising purposes.</p>
         </div>
 
         <div class="info-block">
             <h2>1. Who We Are</h2>
-            <p><strong>Service Provider:</strong> Petalbe Technologies<br>
-            <strong>Owner:</strong> Bianca Scholze<br>
-            <strong>Contact:</strong> <a href="mailto:privacy@petalbe.com">privacy@petalbe.com</a></p>
-            <p>Mera is a Hindi vocabulary learning app for iOS that helps you build conversational Hindi skills through personalized exercises and spaced repetition.</p>
+            
+            <h3>Responsible Party (Data Controller)</h3>
+            <p>
+                Bianca Scholze<br>
+                Petalbe Technologies<br>
+                Roßmarktstraße 37<br>
+                04177 Leipzig<br>
+                Germany
+            </p>
+            <p>
+                <strong>E-Mail:</strong> <a href="mailto:contact@petalbe.com">contact@petalbe.com</a><br>
+                <strong>Website:</strong> <a href="https://tech.petalbe.com" target="_blank" rel="noopener">tech.petalbe.com</a>
+            </p>
+            
+            <p>The responsible party is the natural or legal person who alone or jointly with others determines the purposes and means of the processing of personal data.</p>
+            
+            <p><strong>About Mera:</strong> Mera is a Hindi vocabulary learning app for iOS that helps you build conversational Hindi skills through personalized exercises and spaced repetition.</p>
         </div>
 
         <div class="info-block">
@@ -267,7 +275,7 @@
         <div class="info-block">
             <h2>7. Children's Privacy</h2>
             <p>Mera is suitable for users of all ages, including children under 13. However, we do not knowingly collect personal information from children. Since all data is stored locally and synced via Apple's infrastructure, parents should review Apple's Family Sharing and parental controls for managing children's app usage.</p>
-            <p>If a parent or guardian believes their child has provided data to Mera in a manner inconsistent with this policy, please contact us at <a href="mailto:privacy@petalbe.com">privacy@petalbe.com</a>.</p>
+            <p>If a parent or guardian believes their child has provided data to Mera in a manner inconsistent with this policy, please contact us at <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>.</p>
         </div>
 
         <div class="info-block">
@@ -312,7 +320,7 @@
             <h2>12. Contact Us</h2>
             <p>If you have questions, concerns, or requests regarding this privacy policy or your data, please contact us:</p>
             <p>
-                <strong>Email:</strong> <a href="mailto:privacy@petalbe.com">privacy@petalbe.com</a><br>
+                <strong>Email:</strong> <a href="mailto:contact@petalbe.com">contact@petalbe.com</a><br>
                 <strong>Company:</strong> Petalbe Technologies<br>
                 <strong>Website:</strong> <a href="https://tech.petalbe.com" target="_blank" rel="noopener">https://tech.petalbe.com</a>
             </p>
@@ -326,7 +334,7 @@
 
         <footer>
             <p>&copy; 2025 Petalbe Technologies. All rights reserved.</p>
-            <p style="margin-top: 10px;"><a href="https://tech.petalbe.com">tech.petalbe.com</a> | <a href="mailto:privacy@petalbe.com">privacy@petalbe.com</a></p>
+            <p style="margin-top: 10px;"><a href="https://tech.petalbe.com">tech.petalbe.com</a> | <a href="mailto:contact@petalbe.com">contact@petalbe.com</a></p>
         </footer>
     </div>
 </body>

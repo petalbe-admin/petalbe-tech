@@ -139,10 +139,10 @@
         
         <h1>Privacy Policy for Mera</h1>
         
-        <p class="last-updated">Last Updated: February 13, 2025</p>
+        <p class="last-updated">Last Updated: February 16, 2026</p>
 
         <div class="intro">
-            <p><strong>Your privacy matters.</strong> Mera is designed with privacy at its core - all vocabulary processing happens locally on your device, and your data syncs securely through Apple's iCloud. We never see your personal learning data, and we don't collect, sell, or share your information with third parties for marketing or advertising purposes.</p>
+            <p><strong>Your privacy matters.</strong> Mera is designed with privacy at its core - all vocabulary processing happens locally on your device, and your data syncs securely through Apple's iCloud. We never see your personal learning data, and we don't collect, sell, or share your information with third parties for marketing purposes.</p>
         </div>
 
         <div class="info-block">
@@ -157,7 +157,7 @@
                 Germany
             </p>
             <p>
-                <strong>E-Mail:</strong> <a href="mailto:contact@petalbe.com">contact@petalbe.com</a><br>
+                <strong>E-Mail:</strong> <a href="mailto:hello@petalbe.com">hello@petalbe.com</a><br>
                 <strong>Website:</strong> <a href="https://tech.petalbe.com" target="_blank" rel="noopener">tech.petalbe.com</a>
             </p>
             
@@ -176,6 +176,7 @@
                 <li><strong>Learning Progress:</strong> Your mastery level, correct/incorrect answer counts, review dates, and spaced repetition schedules for each vocabulary item</li>
                 <li><strong>Exercise Statistics:</strong> Exercise completion data, scores, accuracy rates, and time spent practicing</li>
                 <li><strong>User Preferences:</strong> Daily goals, notification settings, and app configuration choices</li>
+                <li><strong>Learning Analytics:</strong> Your daily study streaks, time spent per session, words learned per day/week, and goal completion rates are stored locally and used to display your progress statistics</li>
             </ul>
             <p><strong>Storage Location:</strong> All this data is stored locally using Apple's Core Data framework on your device. If you enable iCloud sync, this data is automatically synchronized across your Apple devices via CloudKit.</p>
             
@@ -187,7 +188,7 @@
             <ul>
                 <li>Personal identification information (name, email, phone number) beyond your Apple ID for sync</li>
                 <li>Location data or GPS coordinates</li>
-                <li>Device identifiers for advertising purposes</li>
+                <li>Device identifiers for advertising purposes (we only use anonymized analytics identifiers for improving app functionality)</li>
                 <li>Browsing history or activity outside the app</li>
                 <li>Contacts, photos, or other sensitive device data</li>
                 <li>Payment information (handled entirely by Apple)</li>
@@ -229,7 +230,7 @@
             <h2>5. Third-Party Services</h2>
             
             <h3>5.1 Apple Services</h3>
-            <p>Mera relies exclusively on Apple's infrastructure:</p>
+            <p>Mera relies on Apple's infrastructure:</p>
             <ul>
                 <li><strong>Apple ID:</strong> For user authentication and iCloud sync (Apple's Privacy Policy applies)</li>
                 <li><strong>CloudKit:</strong> For cross-device data synchronization (covered by Apple's iCloud Terms)</li>
@@ -238,29 +239,91 @@
             </ul>
             <p>Apple's Privacy Policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></p>
             
-            <h3>5.2 No Advertising or Analytics</h3>
-            <p>Mera does <strong>not</strong> use:</p>
+            <h3>5.2 Limited Analytics Usage</h3>
+            <p>Mera uses anonymized analytics only for improving app functionality. We do <strong>not</strong> use:</p>
             <ul>
-                <li>Third-party analytics services (no Google Analytics, Facebook Pixel, etc.)</li>
-                <li>Advertising networks or tracking SDKs</li>
+                <li>Advertising networks or user tracking for marketing purposes</li>
                 <li>Social media integration that shares your data</li>
-                <li>External servers for data processing or storage</li>
+                <li>Analytics data for advertising or selling to third parties</li>
             </ul>
+            <p>For information about our analytics usage, see Section 6 below.</p>
         </div>
 
         <div class="info-block">
-            <h2>6. Your Privacy Rights</h2>
+            <h2>6. Analytics and Usage Data</h2>
             
-            <h3>6.1 Access and Control</h3>
+            <h3>6.1 Google Analytics for Firebase</h3>
+            <p>To understand how users interact with Mera and improve the app experience, we use <strong>Google Analytics for Firebase</strong>, provided by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland).</p>
+            
+            <h3>6.2 Purpose of Analytics</h3>
+            <p>We use Firebase Analytics to analyze app usage patterns, including:</p>
+            <ul>
+                <li>Which features are most popular (e.g., flashcards vs. typing exercises)</li>
+                <li>Vocabulary categories users engage with most</li>
+                <li>Exercise types users prefer</li>
+                <li>App stability and crash reporting</li>
+                <li>Performance metrics to optimize loading times</li>
+            </ul>
+            <p>This information helps us prioritize feature development and fix issues that affect user experience.</p>
+            
+            <h3>6.3 Data Collected by Firebase Analytics</h3>
+            <p>When analytics are enabled, Firebase automatically collects:</p>
+            <ul>
+                <li><strong>App-Instance ID:</strong> An anonymous identifier that cannot be tied to your identity or Apple ID</li>
+                <li><strong>Device Information:</strong> iOS version, device model (e.g., iPhone 14), screen resolution, and language settings</li>
+                <li><strong>App Interaction Events:</strong> Which features you use (e.g., "completed flashcard exercise", "uploaded CSV file") without recording the actual vocabulary content</li>
+                <li><strong>Crash Reports:</strong> Technical data about app crashes to help us fix bugs</li>
+                <li><strong>Performance Data:</strong> App loading times and responsiveness metrics</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>Important:</strong> Firebase Analytics does <strong>not</strong> collect or transmit:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Your vocabulary words or translations</li>
+                    <li>Your learning progress or quiz scores</li>
+                    <li>Your Apple ID or personal identification</li>
+                    <li>Any data that can identify you as an individual</li>
+                </ul>
+            </div>
+            
+            <h3>6.4 How Google Uses This Data</h3>
+            <p>Google processes this anonymized data on our behalf to generate usage reports. Google may also use this data to improve its own services. For details on how Google processes data when you use partner apps:</p>
+            <p><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data when you use our partners' sites or apps</a></p>
+            
+            <h3>6.5 Data Retention</h3>
+            <p>Firebase Analytics retains event data for <strong>14 months</strong> by default. After this period, the data is automatically deleted from Google's servers. This retention period helps us analyze long-term usage trends while minimizing data storage.</p>
+            
+            <h3>6.6 Opt-Out Options</h3>
+            <p>You have full control over analytics sharing:</p>
+            <ul>
+                <li><strong>In-App Control:</strong> Go to Settings → Privacy in Mera and toggle off "Share Anonymous Analytics"</li>
+                <li><strong>iOS System Settings:</strong> You can also limit tracking at the system level:
+                    <ul style="margin-top: 10px;">
+                        <li>Go to iPhone Settings → Privacy & Security → Tracking</li>
+                        <li>Toggle off "Allow Apps to Request to Track"</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Disabling analytics does not affect any app functionality - all features work exactly the same whether analytics are on or off.</p>
+            
+            <h3>6.7 No Advertising Use</h3>
+            <p>We do <strong>not</strong> use Firebase Analytics data for advertising purposes, and we do not share this data with advertising networks. The data is used solely to understand app usage and improve features.</p>
+        </div>
+
+        <div class="info-block">
+            <h2>7. Your Privacy Rights</h2>
+            
+            <h3>7.1 Access and Control</h3>
             <p>You have complete control over your data:</p>
             <ul>
                 <li><strong>View Your Data:</strong> All your vocabulary and progress is visible within the app's Library and Statistics sections</li>
                 <li><strong>Edit Your Data:</strong> You can edit or delete individual vocabulary items at any time</li>
                 <li><strong>Export Your Data:</strong> You can export your vocabulary data in standard formats (future feature)</li>
                 <li><strong>Delete All Data:</strong> Delete the app to remove all local data. For iCloud data, manage it through your Apple ID settings</li>
+                <li><strong>Control Analytics:</strong> Toggle "Share Anonymous Analytics" in app Settings to opt out of Firebase Analytics</li>
             </ul>
             
-            <h3>6.2 iCloud Data Management</h3>
+            <h3>7.2 iCloud Data Management</h3>
             <p>To manage your iCloud data:</p>
             <ul>
                 <li>Go to iPhone Settings → [Your Name] → iCloud → Manage Storage → Mera</li>
@@ -268,45 +331,50 @@
                 <li>Deleting iCloud data will not affect local data stored on your device</li>
             </ul>
             
-            <h3>6.3 Right to Be Forgotten</h3>
-            <p>Since we do not collect personal data on our servers, simply deleting the app removes all local data. For iCloud data, use Apple's iCloud management tools as described above.</p>
+            <h3>7.3 Right to Be Forgotten</h3>
+            <p>Since we do not collect personal data on our servers, simply deleting the app removes all local data. For iCloud data, use Apple's iCloud management tools as described above. Firebase Analytics data is anonymized and automatically deleted after 14 months.</p>
         </div>
 
         <div class="info-block">
-            <h2>7. Children's Privacy</h2>
+            <h2>8. Children's Privacy</h2>
             <p>Mera is suitable for users of all ages, including children under 13. However, we do not knowingly collect personal information from children. Since all data is stored locally and synced via Apple's infrastructure, parents should review Apple's Family Sharing and parental controls for managing children's app usage.</p>
-            <p>If a parent or guardian believes their child has provided data to Mera in a manner inconsistent with this policy, please contact us at <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>.</p>
+            <p>If a parent or guardian believes their child has provided data to Mera in a manner inconsistent with this policy, please contact us at <a href="mailto:hello@petalbe.com">hello@petalbe.com</a>.</p>
         </div>
 
         <div class="info-block">
-            <h2>8. International Data Transfers</h2>
+            <h2>9. International Data Transfers</h2>
             <p>Mera processes all data locally on your device. If you enable iCloud sync, your data is stored in Apple's iCloud infrastructure, which may involve international data transfers according to Apple's policies. Apple complies with applicable data protection laws including GDPR for European users.</p>
-            <p>For more information on Apple's data transfer mechanisms, visit: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></p>
+            <p>Firebase Analytics data is processed by Google Ireland Limited and may be transferred to Google's servers in the United States and other countries. Google complies with the EU-U.S. Data Privacy Framework and uses standard contractual clauses for data transfers.</p>
+            <p>For more information:</p>
+            <ul>
+                <li>Apple's privacy practices: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></li>
+                <li>Google's data transfer safeguards: <a href="https://policies.google.com/privacy/frameworks" target="_blank" rel="noopener">https://policies.google.com/privacy/frameworks</a></li>
+            </ul>
         </div>
 
         <div class="info-block">
-            <h2>9. Data Breach Notification</h2>
+            <h2>10. Data Breach Notification</h2>
             <p>Since we do not collect or store your data on our servers, the risk of a data breach affecting your Mera data is minimal. Your data security depends on:</p>
             <ul>
                 <li>Your device's security (passcode, Face ID, Touch ID)</li>
                 <li>Your Apple ID security (two-factor authentication recommended)</li>
                 <li>Apple's iCloud security infrastructure</li>
             </ul>
-            <p>If Apple notifies us of any security incident affecting Mera users, we will promptly inform affected users according to applicable legal requirements.</p>
+            <p>If Apple or Google notifies us of any security incident affecting Mera users, we will promptly inform affected users according to applicable legal requirements.</p>
         </div>
 
         <div class="info-block">
-            <h2>10. Legal Basis for Processing (GDPR)</h2>
+            <h2>11. Legal Basis for Processing (GDPR)</h2>
             <p>For users in the European Economic Area (EEA), United Kingdom, and Switzerland, we process your data based on:</p>
             <ul>
                 <li><strong>Contractual Necessity (Art. 6(1)(b) GDPR):</strong> Processing vocabulary and progress data is essential to provide the app's core learning functionality</li>
-                <li><strong>Legitimate Interest (Art. 6(1)(f) GDPR):</strong> Storing user preferences and settings to improve user experience</li>
-                <li><strong>Consent:</strong> Where applicable, such as enabling optional iCloud sync features</li>
+                <li><strong>Legitimate Interest (Art. 6(1)(f) GDPR):</strong> Storing user preferences and settings to improve user experience, and processing anonymized analytics data via Firebase to improve app functionality, stability, and user experience</li>
+                <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> Where applicable, such as enabling optional iCloud sync features or sharing analytics data (which you can opt out of at any time)</li>
             </ul>
         </div>
 
         <div class="info-block">
-            <h2>11. Changes to This Privacy Policy</h2>
+            <h2>12. Changes to This Privacy Policy</h2>
             <p>We may update this privacy policy from time to time to reflect changes in our practices, technology, or legal requirements. When we make significant changes, we will:</p>
             <ul>
                 <li>Update the "Last Updated" date at the top of this policy</li>
@@ -317,10 +385,10 @@
         </div>
 
         <div class="info-block">
-            <h2>12. Contact Us</h2>
+            <h2>13. Contact Us</h2>
             <p>If you have questions, concerns, or requests regarding this privacy policy or your data, please contact us:</p>
             <p>
-                <strong>Email:</strong> <a href="mailto:contact@petalbe.com">contact@petalbe.com</a><br>
+                <strong>Email:</strong> <a href="mailto:hello@petalbe.com">hello@petalbe.com</a><br>
                 <strong>Company:</strong> Petalbe Technologies<br>
                 <strong>Website:</strong> <a href="https://tech.petalbe.com" target="_blank" rel="noopener">https://tech.petalbe.com</a>
             </p>
@@ -328,13 +396,20 @@
         </div>
 
         <div class="info-block">
-            <h2>13. Supervisory Authority</h2>
-            <p>If you are located in the EEA, UK, or Switzerland and believe we have not addressed your privacy concerns adequately, you have the right to lodge a complaint with your local data protection authority.</p>
+            <h2>14. Supervisory Authority</h2>
+            <p>If you are located in the EEA, UK, or Switzerland and believe we have not addressed your privacy concerns adequately, you have the right to lodge a complaint with your local data protection authority:</p>
+            <ul>
+                <li><strong>Germany:</strong> Contact your state's data protection authority (Landesdatenschutzbehörde) or the Federal Commissioner for Data Protection and Freedom of Information (BfDI)</li>
+                <li><strong>EU/EEA:</strong> Find your national authority at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">https://edpb.europa.eu/about-edpb/about-edpb/members_en</a></li>
+            </ul>
         </div>
 
         <footer>
-            <p>&copy; Petalbe Technologies. All rights reserved.</p>
-            <p style="margin-top: 10px;"><a href="https://tech.petalbe.com">tech.petalbe.com</a> | <a href="mailto:contact@petalbe.com">contact@petalbe.com</a></p>
+            <p>&copy; 2026 Petalbe Technologies. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://tech.petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> | 
+                <a href="mailto:hello@petalbe.com">Contact Us</a>
+            </p>
         </footer>
     </div>
 </body>

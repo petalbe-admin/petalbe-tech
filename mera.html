@@ -13,33 +13,30 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:      #007AFF;
-      --blue-dk:   #0062CC;
-      --blue-xdk:  #004DB3;
-      --card:      #FFFFFF;
-      --card-sub:  rgba(255,255,255,0.12);
-      --text:      #1C1C1E;
-      --muted:     rgba(255,255,255,0.62);
-      --sep:       rgba(255,255,255,0.15);
-      --font:      'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --ease:      cubic-bezier(0.16, 1, 0.3, 1);
-      --r:         20px;
-      --r-lg:      28px;
-      --shadow:    0 8px 32px rgba(0,0,0,0.14);
-      --shadow-lg: 0 20px 56px rgba(0,0,0,0.2);
+      --blue:     #007AFF;
+      --blue-dk:  #0062CC;
+      --blue-lt:  #EBF4FF;
+      --white:    #FFFFFF;
+      --off:      #F2F2F7;
+      --text:     #1C1C1E;
+      --text-2:   #3C3C43;
+      --muted:    #8E8E93;
+      --sep:      #E5E5EA;
+      --dark:     #1C1C1E;
+      --font:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:     cubic-bezier(0.16, 1, 0.3, 1);
+      --r:        18px;
+      --r-lg:     24px;
     }
 
-    html { scroll-behavior: smooth; background: #007AFF; }
-
-    html { background: #007AFF; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font);
-      background: #007AFF;
-      color: #fff;
+      background: var(--white);
+      color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
     }
 
     /* ── NAV ── */
@@ -47,7 +44,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 14px 24px;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(0, 100, 210, 0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--sep);
     }
@@ -55,63 +52,52 @@
     .nav-logo {
       display: inline-flex; align-items: center; gap: 9px;
       font-size: 1.2rem; font-weight: 800; letter-spacing: -0.03em;
-      color: #fff; text-decoration: none;
+      color: var(--text); text-decoration: none;
     }
 
     .app-icon {
       display: inline-flex; align-items: center; justify-content: center;
       width: 32px; height: 32px; border-radius: 8px;
-      background: #fff; color: var(--blue);
+      background: var(--blue); color: #fff;
       font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     .nav-cta {
       display: inline-flex; align-items: center; gap: 7px;
-      background: #fff; color: var(--blue);
+      background: var(--blue); color: #fff;
       text-decoration: none; font-size: 0.82rem; font-weight: 700;
       padding: 9px 17px; border-radius: 100px;
-      transition: all 0.18s;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      transition: all 0.18s; box-shadow: 0 2px 10px rgba(0,122,255,0.25);
       white-space: nowrap;
     }
-    .nav-cta:hover { background: var(--blue-dk); color: #fff; transform: scale(1.03); }
+    .nav-cta:hover { background: var(--blue-dk); transform: scale(1.03); }
     .nav-cta svg { width: 13px; height: 13px; flex-shrink: 0; }
 
-    /* ── SHARED ── */
-    .page-section {
-      padding: 88px 24px;
-    }
-
-    .inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    /* ── HERO ── */
+    /* ── HERO — light blue ── */
     .hero {
-      padding: 130px 24px 80px;
+      background: var(--blue-lt);
+      padding: 120px 24px 80px;
       text-align: center;
     }
 
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,255,255,0.18); color: #fff;
+      display: inline-flex; align-items: center;
+      background: var(--white); color: var(--blue);
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.25);
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 22px;
+      border: 1px solid var(--sep);
       animation: fadeUp 0.5s var(--ease) both;
     }
 
     .hero h1 {
       font-size: clamp(2.6rem, 8.5vw, 5rem);
       font-weight: 800; line-height: 1.05; letter-spacing: -0.04em;
-      color: #fff; max-width: 660px; margin: 0 auto 18px;
+      color: var(--text); max-width: 660px; margin: 0 auto 18px;
       animation: fadeUp 0.5s var(--ease) 0.08s both;
     }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.12rem);
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
       color: var(--muted); max-width: 420px; line-height: 1.65;
       margin: 0 auto 36px;
       animation: fadeUp 0.5s var(--ease) 0.16s both;
@@ -124,123 +110,115 @@
 
     .btn-white {
       display: inline-flex; align-items: center; gap: 9px;
-      background: #fff; color: var(--blue);
+      background: var(--blue); color: #fff;
       text-decoration: none; font-size: 0.97rem; font-weight: 700;
       padding: 14px 26px; border-radius: 100px;
-      transition: all 0.18s; box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      transition: all 0.18s; box-shadow: 0 4px 20px rgba(0,122,255,0.3);
     }
-    .btn-white:hover { background: #EBF4FF; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
+    .btn-white:hover { background: var(--blue-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,122,255,0.38); }
     .btn-white svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-    .hero-note {
-      font-size: 0.74rem; color: var(--muted);
-    }
+    .hero-note { font-size: 0.74rem; color: var(--muted); }
 
     .hero-img {
-      margin: 52px auto 0; width: 100%; max-width: 280px;
+      margin: 52px auto 0; width: 100%; max-width: 260px;
       animation: fadeUp 0.7s var(--ease) 0.32s both;
     }
     .hero-img img {
       width: 100%; display: block;
-      filter: drop-shadow(0 24px 40px rgba(0,0,0,0.25));
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.28));
     }
 
-    /* ── SPLIT SECTIONS ── */
+    /* ── SPLIT SECTIONS — alternating ── */
     .split-section {
-      padding: 72px 24px;
+      padding: 80px 24px;
+      border-bottom: 1px solid var(--sep);
     }
+    .split-a { background: var(--white); }
+    .split-b { background: var(--blue-lt); }
+    .split-c { background: var(--white); }
 
     .split-inner {
       max-width: 1080px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 32px; align-items: center;
+      display: flex; flex-direction: column; gap: 48px; align-items: center;
     }
 
-    /* White floating card */
-    .feat-card {
-      background: var(--card);
-      border-radius: var(--r-lg);
-      padding: 36px 32px;
-      box-shadow: var(--shadow);
-      width: 100%;
-      color: var(--text);
-    }
-
-    .feat-card .s-label { color: var(--blue); }
-    .feat-card .s-title { color: var(--text); }
-    .feat-card .s-body  { color: #6B6B6E; }
-
-    /* Screenshot column */
+    .feat-content { width: 100%; }
     .feat-img {
-      width: 100%;
-      display: flex; justify-content: center;
+      width: 100%; display: flex; justify-content: center;
     }
     .feat-img img {
       width: 100%; max-width: 240px; display: block;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.22));
+      filter: drop-shadow(0 16px 36px rgba(0,0,0,0.15));
     }
 
-    /* Text styles inside cards */
+    /* Text styles */
     .s-label {
       display: inline-block; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
-    }
-    .s-title {
-      font-size: clamp(1.7rem, 4.5vw, 2.4rem); font-weight: 800;
-      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;
-    }
-    .s-body {
-      font-size: 1rem; line-height: 1.68; max-width: 460px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
     }
 
-    /* Feature points inside cards */
-    .fp-list { margin-top: 24px; display: flex; flex-direction: column; gap: 18px; }
+    .s-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.03em;
+      color: var(--text); margin-bottom: 14px;
+    }
+
+    .s-body {
+      font-size: 1rem; line-height: 1.68; color: var(--muted); max-width: 480px;
+    }
+
+    /* Feature points */
+    .fp-list { margin-top: 28px; display: flex; flex-direction: column; gap: 20px; }
 
     .fp { display: flex; align-items: flex-start; gap: 14px; }
 
     .fp-icon {
       width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
-      background: #EBF4FF; color: var(--blue);
+      background: var(--white);
+      border: 1px solid var(--sep);
       display: flex; align-items: center; justify-content: center; font-size: 1rem;
     }
 
     .fp h4 { font-size: 0.93rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .fp p  { font-size: 0.84rem; color: #6B6B6E; line-height: 1.56; }
+    .fp p  { font-size: 0.84rem; color: var(--muted); line-height: 1.56; }
     .fp p strong { color: var(--text); font-weight: 600; }
 
-    /* Script toggle inside card */
+    /* Script toggle */
     .script-toggle {
       display: inline-flex; margin-top: 10px;
-      background: #F2F2F7; border-radius: 100px; padding: 3px; gap: 2px;
+      background: var(--white); border-radius: 100px; padding: 3px; gap: 2px;
+      border: 1px solid var(--sep);
     }
     .script-pill {
       font-size: 0.72rem; font-weight: 600; padding: 5px 12px;
-      border-radius: 100px; color: #8E8E93;
+      border-radius: 100px; color: var(--muted);
     }
     .script-pill.on {
-      background: #fff; color: var(--blue);
+      background: var(--white); color: var(--blue);
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
 
     /* ── QUOTE ── */
     .quote-section {
+      background: var(--blue-lt);
       padding: 88px 24px;
       text-align: center;
     }
 
-    .quote-inner { max-width: 720px; margin: 0 auto; }
+    .quote-inner { max-width: 700px; margin: 0 auto; }
 
     .quote-mark {
-      font-size: 5rem; line-height: 0.5;
-      color: rgba(255,255,255,0.35);
-      display: block; margin-bottom: 28px;
-      font-family: Georgia, serif;
+      font-size: 5rem; line-height: 0.5; color: var(--blue);
+      display: block; margin-bottom: 24px; font-family: Georgia, serif;
     }
 
     .quote-text {
-      font-size: clamp(1.25rem, 3.5vw, 1.8rem);
+      font-size: clamp(1.2rem, 3.2vw, 1.65rem);
       font-weight: 500; font-style: italic;
-      color: #fff; line-height: 1.52;
-      letter-spacing: -0.02em; margin-bottom: 32px;
+      color: var(--text); line-height: 1.52;
+      letter-spacing: -0.02em; margin-bottom: 28px;
     }
 
     .quote-attr {
@@ -248,35 +226,29 @@
     }
     .quote-avatar {
       width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+      background: var(--blue-lt);
       display: flex; align-items: center; justify-content: center; font-size: 1rem;
     }
-    .quote-name { font-size: 0.86rem; font-weight: 700; color: #fff; display: block; text-align: left; }
+    .quote-name { font-size: 0.86rem; font-weight: 700; color: var(--text); display: block; text-align: left; }
     .quote-role { font-size: 0.76rem; color: var(--muted); display: block; text-align: left; }
 
-    /* ── CTA CARD ── */
+    /* ── CTA ── */
     .cta-section {
-      padding: 72px 24px 96px;
-    }
-
-    .cta-card {
-      max-width: 540px; margin: 0 auto;
-      background: var(--card);
-      border-radius: var(--r-lg);
-      padding: 48px 36px;
-      box-shadow: var(--shadow-lg);
+      background: var(--white);
+      padding: 88px 24px;
       text-align: center;
+      border-top: 1px solid var(--sep);
     }
 
-    .cta-card h2 {
-      font-size: clamp(1.7rem, 4.5vw, 2.2rem);
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
       font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
       color: var(--text); margin-bottom: 12px;
     }
 
-    .cta-card p {
-      color: #6B6B6E; font-size: 1rem; line-height: 1.65;
-      margin-bottom: 28px;
+    .cta-section p {
+      color: var(--muted); font-size: 1rem; line-height: 1.65;
+      max-width: 380px; margin: 0 auto 28px;
     }
 
     .btn-blue {
@@ -284,23 +256,22 @@
       background: var(--blue); color: #fff;
       text-decoration: none; font-size: 0.97rem; font-weight: 700;
       padding: 14px 26px; border-radius: 100px;
-      transition: all 0.18s; box-shadow: 0 4px 20px rgba(0,122,255,0.35);
+      transition: all 0.18s; box-shadow: 0 4px 20px rgba(0,122,255,0.3);
     }
-    .btn-blue:hover { background: var(--blue-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,122,255,0.4); }
+    .btn-blue:hover { background: var(--blue-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,122,255,0.38); }
     .btn-blue svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-    .cta-note { display: block; margin-top: 12px; font-size: 0.74rem; color: #8E8E93; }
+    .cta-note { display: block; margin-top: 10px; font-size: 0.74rem; color: var(--muted); }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--blue-xdk);
-      color: rgba(255,255,255,0.4);
+      background: var(--dark);
+      color: rgba(255,255,255,0.35);
       padding: 28px 24px; text-align: center;
       font-size: 0.78rem; line-height: 1.8;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
-    footer a:hover { color: #fff; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--blue); }
     .footer-logo {
       font-size: 1.1rem; font-weight: 800; letter-spacing: -0.03em;
       color: #fff; margin-bottom: 5px; display: block;
@@ -321,36 +292,26 @@
 
     /* ── DESKTOP ── */
     @media (min-width: 840px) {
-      .split-inner {
-        flex-direction: row;
-        gap: 48px;
-        align-items: center;
-      }
-      .feat-card { width: 52%; }
-      .feat-img  { width: 48%; }
-
-      /* Section 1: image LEFT, card RIGHT */
-      .split-a .feat-card { order: 2; }
-      .split-a .feat-img  { order: 1; justify-content: flex-end; }
-
-      /* Section 2: card LEFT, image RIGHT */
-      .split-b .feat-card { order: 1; }
-      .split-b .feat-img  { order: 2; justify-content: flex-start; }
-
-      /* Section 3: image LEFT, card RIGHT */
-      .split-c .feat-card { order: 2; }
-      .split-c .feat-img  { order: 1; justify-content: flex-end; }
-
+      .split-inner { flex-direction: row; gap: 72px; align-items: center; }
+      .feat-content { width: 50%; }
+      .feat-img     { width: 50%; }
       .feat-img img { max-width: 280px; }
+
+      .split-a .feat-content { order: 2; }
+      .split-a .feat-img     { order: 1; justify-content: flex-end; }
+
+      .split-b .feat-content { order: 1; }
+      .split-b .feat-img     { order: 2; justify-content: flex-start; }
+
+      .split-c .feat-content { order: 2; }
+      .split-c .feat-img     { order: 1; justify-content: flex-end; }
     }
 
     @media (min-width: 1024px) {
       nav { padding: 14px 64px; }
-      .hero { padding: 140px 64px 88px; }
-      .split-section { padding: 80px 64px; }
-      .quote-section { padding: 100px 64px; }
-      .cta-section { padding: 80px 64px 108px; }
-      .split-inner { gap: 64px; }
+      .hero { padding: 140px 64px 96px; }
+      .split-section { padding: 96px 64px; }
+      .quote-section, .cta-section { padding: 100px 64px; }
     }
   </style>
 </head>
@@ -368,7 +329,7 @@
     </a>
   </nav>
 
-  <!-- ══ HERO ══ -->
+  <!-- ══ HERO — blue ══ -->
   <section class="hero">
     <div class="hero-badge">Hindi Vocabulary App for iPhone</div>
     <h1>Learn Hindi with<br>Mera app</h1>
@@ -385,19 +346,18 @@
     </div>
   </section>
 
-  <!-- ══ SPLIT A — image left, card right ══ -->
+  <!-- ══ SPLIT A — image left, content right ══ -->
   <section class="split-section split-a">
     <div class="split-inner">
 
       <div class="feat-img reveal">
-        <img src="Mera_Screenshots_001.png" alt="Mera app showing personal vocabulary dictionary" />
+        <img src="Mera_Screenshots_001.png" alt="Mera personal vocabulary dictionary" />
       </div>
 
-      <div class="feat-card reveal d1">
+      <div class="feat-content reveal d1">
         <div class="s-label">Your vocabulary</div>
         <h2 class="s-title">Words that are<br>relevant to you</h2>
         <p class="s-body">Most apps give you their word list. Mera lets you build yours — from your actual lessons, with your tutor, in the order that makes sense for you.</p>
-
         <div class="fp-list">
           <div class="fp">
             <div class="fp-icon">📄</div>
@@ -416,7 +376,7 @@
           <div class="fp">
             <div class="fp-icon">☁️</div>
             <div>
-              <h4>Syncs across all your devices</h4>
+              <h4>Syncs across your devices</h4>
               <p>iCloud keeps everything in sync automatically. No account, no login needed.</p>
             </div>
           </div>
@@ -426,24 +386,24 @@
     </div>
   </section>
 
-  <!-- ══ SPLIT B — card left, image right ══ -->
+  <!-- ══ SPLIT B — content left, image right ══ -->
   <section class="split-section split-b">
     <div class="split-inner">
 
-      <div class="feat-card reveal">
+      <div class="feat-content reveal">
         <div class="s-label">Practice modes</div>
         <h2 class="s-title">Six exercises.<br>One goal.</h2>
         <p class="s-body">From gentle warm-ups to full recall challenges — Mera moves you through each level deliberately, always using your own vocabulary.</p>
       </div>
 
       <div class="feat-img reveal d1">
-        <img src="Mera_Screenshots_002.png" alt="Mera app showing exercise selection" />
+        <img src="Mera_Screenshots_002.png" alt="Mera exercise selection screen" />
       </div>
 
     </div>
   </section>
 
-  <!-- ══ SPLIT C — image left, card right ══ -->
+  <!-- ══ SPLIT C — image left, content right ══ -->
   <section class="split-section split-c">
     <div class="split-inner">
 
@@ -451,17 +411,16 @@
         <img src="Mera_Screenshots_003.png" alt="Mera app home screen" />
       </div>
 
-      <div class="feat-card reveal d1">
+      <div class="feat-content reveal d1">
         <div class="s-label">Your script, your choice</div>
         <h2 class="s-title">Conversational first.<br>Devanagari when you're ready.</h2>
         <p class="s-body">No app should tell you how to learn. Start speaking Hindi in Roman script — and add Devanagari at exactly the moment it makes sense for you.</p>
-
         <div class="fp-list">
           <div class="fp">
             <div class="fp-icon">💬</div>
             <div>
               <h4>Start conversational</h4>
-              <p>Practice with <strong>Roman transliteration</strong> so you can focus on speaking — without the alphabet as a barrier.</p>
+              <p>Practice with <strong>Roman transliteration</strong> so you can focus on speaking without the alphabet as a barrier.</p>
             </div>
           </div>
           <div class="fp">
@@ -492,9 +451,7 @@
   <section class="quote-section">
     <div class="quote-inner">
       <span class="quote-mark reveal">"</span>
-      <p class="quote-text reveal d1">
-        Mera turns lesson notes into personalised practice — and it actually respects how you want to learn.
-      </p>
+      <p class="quote-text reveal d1">Mera turns lesson notes into personalised practice — and it actually respects how you want to learn.</p>
       <div class="quote-attr reveal d2">
         <div class="quote-avatar">🎓</div>
         <div>
@@ -507,9 +464,9 @@
 
   <!-- ══ CTA ══ -->
   <section class="cta-section">
-    <div class="cta-card reveal">
-      <h2>Start learning.<br>Hindi, mera tarika.</h2>
-      <p>Free to download. No account required. Your vocabulary, your script, your pace — from day one.</p>
+    <h2 class="reveal">Start learning.<br>Hindi, mera tarika.</h2>
+    <p class="reveal d1">Free to download. No account required. Your vocabulary, your script, your pace — from day one.</p>
+    <div class="reveal d2">
       <a class="btn-blue" href="https://apps.apple.com/app/mera-hindi" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store

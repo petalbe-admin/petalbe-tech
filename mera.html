@@ -22,7 +22,8 @@
       --text-2:   #3C3C43;
       --muted:    #8E8E93;
       --sep:      #E5E5EA;
-      --dark:     #1C1C1E;
+      --dark:     #22313F;
+      --dark-2:   #1a2633;
       --green:    #34C759;
       --font:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --ease:     cubic-bezier(0.16, 1, 0.3, 1);
@@ -165,13 +166,27 @@
 
     .hero-note { font-size: 0.74rem; color: var(--muted); }
 
-    .hero-img {
-      margin: 52px auto 0; width: 100%; max-width: 260px;
+    /* ── HERO DUAL IMAGES ── */
+    .hero-img-duo {
+      margin: 52px auto 0; width: 100%;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 16px;
       animation: fadeUp 0.7s var(--ease) 0.32s both;
     }
-    .hero-img img {
-      width: 100%; display: block;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.28));
+
+    .hero-img-duo img {
+      display: block;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.22));
+      border-radius: 28px;
+    }
+
+    .hero-img-duo .img-main {
+      width: 46%; max-width: 220px;
+    }
+
+    .hero-img-duo .img-secondary {
+      width: 40%; max-width: 195px;
+      margin-bottom: 20px;
     }
 
     /* ── SPLIT SECTIONS — alternating ── */
@@ -182,6 +197,7 @@
     .split-a { background: var(--white); }
     .split-b { background: var(--blue-lt); }
     .split-c { background: var(--white); }
+    .split-d { background: var(--blue-lt); }
 
     .split-inner {
       max-width: 1080px; margin: 0 auto;
@@ -195,6 +211,25 @@
     .feat-img img {
       width: 100%; max-width: 240px; display: block;
       filter: drop-shadow(0 16px 36px rgba(0,0,0,0.15));
+      border-radius: 24px;
+    }
+
+    /* ── DUAL IMAGE LAYOUT ── */
+    .feat-img-duo {
+      width: 100%; display: flex; justify-content: center;
+      align-items: flex-end; gap: 12px;
+    }
+    .feat-img-duo img {
+      display: block;
+      filter: drop-shadow(0 16px 36px rgba(0,0,0,0.15));
+      border-radius: 24px;
+    }
+    .feat-img-duo .img-a {
+      width: 48%; max-width: 210px;
+    }
+    .feat-img-duo .img-b {
+      width: 43%; max-width: 190px;
+      margin-bottom: 18px;
     }
 
     .s-label {
@@ -228,18 +263,14 @@
     .fp p  { font-size: 0.84rem; color: var(--muted); line-height: 1.56; }
     .fp p strong { color: var(--text); font-weight: 600; }
 
-    .script-toggle {
-      display: inline-flex; margin-top: 10px;
-      background: var(--white); border-radius: 100px; padding: 3px; gap: 2px;
-      border: 1px solid var(--sep);
-    }
-    .script-pill {
-      font-size: 0.72rem; font-weight: 600; padding: 5px 12px;
-      border-radius: 100px; color: var(--muted);
-    }
-    .script-pill.on {
-      background: var(--white); color: var(--blue);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    /* ── COMING SOON BADGE ── */
+    .coming-soon-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(0,122,255,0.1); color: var(--blue);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+      border: 1px solid rgba(0,122,255,0.2); margin-left: 8px;
+      vertical-align: middle;
     }
 
     /* ── QUOTE ── */
@@ -298,18 +329,81 @@
       max-width: 420px; margin: 0 auto;
     }
 
+    /* ── CROSS-PRODUCT ── */
+    .cross-section {
+      background: var(--dark);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .cross-inner { max-width: 900px; margin: 0 auto; }
+
+    .cross-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 8px; display: block;
+    }
+
+    .cross-title {
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 40px;
+    }
+
+    .cross-cards {
+      display: flex; flex-direction: column; gap: 16px; align-items: center;
+    }
+
+    .cross-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; padding: 28px 32px;
+      display: flex; align-items: center; gap: 20px;
+      max-width: 600px; width: 100%;
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .cross-card:hover { background: rgba(255,255,255,0.1); }
+
+    .cross-icon {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .cross-icon-luma { background: linear-gradient(135deg, #FF9500, #FF6B35); }
+    .cross-icon-petalbe { background: linear-gradient(135deg, #34C759, #30B050); }
+
+    .cross-card-body h3 {
+      font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px;
+    }
+    .cross-card-body p {
+      font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.5;
+    }
+
+    .cross-card-arrow {
+      margin-left: auto; color: rgba(255,255,255,0.3); font-size: 1.1rem; flex-shrink: 0;
+    }
+
     /* ── FOOTER ── */
     footer {
-      background: var(--dark);
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
       color: rgba(255,255,255,0.35);
-      padding: 28px 24px; text-align: center;
+      padding: 40px 24px; text-align: center;
       font-size: 0.78rem; line-height: 1.8;
     }
-    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    .footer-inner { max-width: 1000px; margin: 0 auto; }
+
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--blue); }
+
     .footer-logo {
       font-size: 1.1rem; font-weight: 800; letter-spacing: -0.03em;
       color: #fff; margin-bottom: 5px; display: block;
+    }
+
+    .footer-links {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 20px;
+      margin: 14px 0 8px;
     }
 
     /* ── REVEAL ── */
@@ -331,22 +425,39 @@
       .feat-content { width: 50%; }
       .feat-img     { width: 50%; }
       .feat-img img { max-width: 280px; }
+      .feat-img-duo { width: 50%; }
+      .feat-img-duo .img-a { max-width: 230px; }
+      .feat-img-duo .img-b { max-width: 205px; }
 
+      /* Alternating layout */
       .split-a .feat-content { order: 2; }
-      .split-a .feat-img     { order: 1; justify-content: flex-end; }
+      .split-a .feat-img,
+      .split-a .feat-img-duo { order: 1; justify-content: flex-end; }
 
       .split-b .feat-content { order: 1; }
-      .split-b .feat-img     { order: 2; justify-content: flex-start; }
+      .split-b .feat-img,
+      .split-b .feat-img-duo { order: 2; justify-content: flex-start; }
 
       .split-c .feat-content { order: 2; }
-      .split-c .feat-img     { order: 1; justify-content: flex-end; }
+      .split-c .feat-img,
+      .split-c .feat-img-duo { order: 1; justify-content: flex-end; }
+
+      .split-d .feat-content { order: 1; }
+      .split-d .feat-img,
+      .split-d .feat-img-duo { order: 2; justify-content: flex-start; }
+
+      .cross-cards { flex-direction: row; justify-content: center; }
+      .cross-card { max-width: 380px; }
+
+      .hero-img-duo .img-main { max-width: 240px; }
+      .hero-img-duo .img-secondary { max-width: 215px; }
     }
 
     @media (min-width: 1024px) {
       nav { padding: 14px 64px; }
       .hero { padding: 140px 64px 96px; }
       .split-section { padding: 96px 64px; }
-      .quote-section, .cta-section { padding: 100px 64px; }
+      .quote-section, .cta-section, .cross-section { padding: 100px 64px; }
     }
   </style>
 </head>
@@ -394,25 +505,61 @@
       <span class="hero-note">Free · iPhone · App Store launch on March 15, 2026</span>
     </div>
 
-    <div class="hero-img">
-      <img src="https://i.imgur.com/RkNNulQ.png" alt="Mera app showing home dashboard" />
+    <div class="hero-img-duo">
+      <img class="img-main" src="https://i.imgur.com/Bh8p5kw.png" alt="Mera app home dashboard" />
+      <img class="img-secondary" src="https://i.imgur.com/IKirOJ4.png" alt="Mera app practice screen" />
     </div>
   </section>
 
-  <!-- ══ SPLIT A ══ -->
+  <!-- ══ SPLIT A — Conversational First ══ -->
   <section class="split-section split-a">
     <div class="split-inner">
 
       <div class="feat-img reveal">
-        <img src="https://i.imgur.com/P0gg92j.png" alt="Mera personal vocabulary dictionary" />
+        <img src="https://i.imgur.com/RkNNulQ.png" alt="Mera conversational learning" />
       </div>
 
       <div class="feat-content reveal d1">
+        <div class="s-label">Conversational first</div>
+        <h2 class="s-title">Speak Hindi<br>from day one.</h2>
+        <p class="s-body">Mera is built for conversational learners. No alphabet barrier, no prerequisite script knowledge — just the words from your lessons, ready to practise straight away.</p>
+        <div class="fp-list">
+          <div class="fp">
+            <div class="fp-icon">💬</div>
+            <div>
+              <h4>Start with Roman transliteration</h4>
+              <p>Every word in the app is stored in <strong>Roman script</strong> so you can focus on pronunciation and meaning before anything else.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">🔤</div>
+            <div>
+              <h4>Devanagari is coming soon <span class="coming-soon-badge">✨ Soon</span></h4>
+              <p>Devanagari support is in the works. When it arrives, your progress and vocabulary carry over — no starting over.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">🔊</div>
+            <div>
+              <h4>Pronunciation guidance <span class="coming-soon-badge">✨ Soon</span></h4>
+              <p>Audio pronunciation support is on the roadmap — so you can hear words spoken correctly, not just read them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SPLIT B — Your vocabulary ══ -->
+  <section class="split-section split-b">
+    <div class="split-inner">
+
+      <div class="feat-content reveal">
         <div class="s-label">Your vocabulary</div>
-        <h2 class="s-title">Words that are<br>relevant to you</h2>
+        <h2 class="s-title">Words that are<br>relevant to you.</h2>
         <p class="s-body">Most apps give you their word list. Mera lets you build yours — from your actual lessons, with your tutor, in the order that makes sense for you.</p>
         <div class="fp-list">
-          
           <div class="fp">
             <div class="fp-icon">✏️</div>
             <div>
@@ -437,55 +584,46 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ══ SPLIT B ══ -->
-  <section class="split-section split-b">
-    <div class="split-inner">
-
-      <div class="feat-content reveal">
-        <div class="s-label">Practice modes</div>
-        <h2 class="s-title">Six exercises.<br>One goal.</h2>
-        <p class="s-body">From gentle warm-ups to full recall challenges — Mera moves you through each level deliberately, always using your own vocabulary.</p>
-      </div>
-
-      <div class="feat-img reveal d1">
-        <img src="https://i.imgur.com/ALq52La.png" alt="Mera exercise selection screen" />
+      <div class="feat-img-duo reveal d1">
+        <img class="img-a" src="https://i.imgur.com/P0gg92j.png" alt="Mera personal vocabulary dictionary" />
+        <img class="img-b" src="https://i.imgur.com/DHQIGMT.png" alt="Mera add new word screen" />
       </div>
 
     </div>
   </section>
 
-  <!-- ══ SPLIT C ══ -->
+  <!-- ══ SPLIT C — Exercises ══ -->
   <section class="split-section split-c">
     <div class="split-inner">
 
       <div class="feat-img reveal">
-        <img src="https://i.imgur.com/RkNNulQ.png" alt="Mera app home screen" />
+        <img src="https://i.imgur.com/ALq52La.png" alt="Mera exercise selection screen" />
       </div>
 
       <div class="feat-content reveal d1">
-        <div class="s-label">Your script, your choice</div>
-        <h2 class="s-title">Conversational first.<br>Devanagari when you're ready.</h2>
-        <p class="s-body">No app should tell you how to learn. Start speaking Hindi in Roman script — and add Devanagari at exactly the moment it makes sense for you.</p>
+        <div class="s-label">Practice modes</div>
+        <h2 class="s-title">Six exercises.<br>One goal.</h2>
+        <p class="s-body">From gentle warm-ups to full recall challenges — Mera moves you through each level deliberately, always using your own vocabulary.</p>
         <div class="fp-list">
           <div class="fp">
-            <div class="fp-icon">💬</div>
+            <div class="fp-icon">🃏</div>
             <div>
-              <h4>Start conversational</h4>
-              <p>Practice with <strong>Roman transliteration</strong> so you can focus on speaking without the alphabet as a barrier.</p>
+              <h4>Flashcards</h4>
+              <p>Warm up by flipping through your words. Easy and effective.</p>
             </div>
           </div>
           <div class="fp">
-            <div class="fp-icon">🔤</div>
+            <div class="fp-icon">☑️</div>
             <div>
-              <h4>Add Devanagari when you're ready</h4>
-              <p>Switch to <strong>देवनागरी</strong> at any point. Your mastery and progress carry over seamlessly.</p>
-              <div class="script-toggle">
-                <span class="script-pill on">Roman (bolna)</span>
-                <span class="script-pill">देवनागरी</span>
-              </div>
+              <h4>Multiple choice, matching, fill-in-blank</h4>
+              <p>Build recognition and recall through structured practice formats.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">⌨️</div>
+            <div>
+              <h4>Type the answer & gender quiz</h4>
+              <p>Test active recall by typing, and master Hindi noun genders with a dedicated quiz.</p>
             </div>
           </div>
           <div class="fp">
@@ -509,8 +647,8 @@
       <div class="quote-attr reveal d2">
         <div class="quote-avatar">🎓</div>
         <div>
-          <span class="quote-name">Hindi Language Tutor</span>
-          <span class="quote-role">Co-creator &amp; advisor, Mera</span>
+          <span class="quote-name">Madhvi Sharma</span>
+          <span class="quote-role">Hindi Language Tutor · Co-creator &amp; advisor, Mera</span>
         </div>
       </div>
     </div>
@@ -540,18 +678,59 @@
         By submitting you agree to be added to the Mera TestFlight beta.
         Your email is used solely to send your invite and will not be shared.
       </p>
-      <span class="cta-note" style="margin-top:4px;">Free · iPhone · App Store launch oo March 15, 2026</span>
+      <span class="hero-note" style="margin-top:4px;">Free · iPhone · App Store launch on March 15, 2026</span>
+    </div>
+  </section>
+
+  <!-- ══ CROSS-PRODUCT PROMOTION ══ -->
+  <section class="cross-section">
+    <div class="cross-inner">
+      <span class="cross-label reveal">Also from Petalbe Technologies</span>
+      <h2 class="cross-title reveal d1">More apps you might love</h2>
+      <div class="cross-cards">
+
+        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="cross-card reveal d1">
+            <div class="cross-icon cross-icon-luma">🌙</div>
+            <div class="cross-card-body">
+              <h3>Luma</h3>
+              <p>Cycle-aware fasting & wellness for women. Coming soon.</p>
+            </div>
+            <span class="cross-card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="cross-card reveal d2">
+            <div class="cross-icon cross-icon-petalbe">🌿</div>
+            <div class="cross-card-body">
+              <h3>Petalbe Technologies</h3>
+              <p>Human-centred digital products inspired by nature, backed by science.</p>
+            </div>
+            <span class="cross-card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">Mera</span>
-    <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
-    <p style="margin-top:4px;">© 2026 Petalbe Technologies &nbsp;·&nbsp; <a href="mailto:contact@petalbe.com">contact@petalbe.com</a></p>
+    <div class="footer-inner">
+      <span class="footer-logo">Mera</span>
+      <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf9f8a9b8e838d8ac18c8082"><span class="__cf_email__" data-cfemail="187b77766c797b6c58687d6c79747a7d367b7775">[email&#160;protected]</span></a>
+      </div>
+      <p style="margin-top:4px;">© 2026 Petalbe Technologies</p>
+    </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Scroll reveal ──
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -582,7 +761,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // ← replace with your key from web3forms.com
+            access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
             subject: '🧪 New Mera Beta Signup',
             from_name: 'Mera Beta Signup',
             email: email,
@@ -609,13 +788,4 @@
     // Allow Enter key to submit
     document.querySelectorAll('.beta-input').forEach(input => {
       input.addEventListener('keydown', e => {
-        if (e.key === 'Enter') {
-          const row = input.closest('.beta-input-row') || input.parentElement;
-          const btn = row.querySelector('.beta-btn');
-          if (btn) btn.click();
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+        if

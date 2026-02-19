@@ -23,6 +23,7 @@
       --muted:    #8E8E93;
       --sep:      #E5E5EA;
       --dark:     #1C1C1E;
+      --green:    #34C759;
       --font:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --ease:     cubic-bezier(0.16, 1, 0.3, 1);
       --r:        18px;
@@ -71,7 +72,6 @@
       white-space: nowrap;
     }
     .nav-cta:hover { background: var(--blue-dk); transform: scale(1.03); }
-    .nav-cta svg { width: 13px; height: 13px; flex-shrink: 0; }
 
     /* ── HERO — light blue ── */
     .hero {
@@ -108,15 +108,60 @@
       animation: fadeUp 0.5s var(--ease) 0.24s both;
     }
 
-    .btn-white {
-      display: inline-flex; align-items: center; gap: 9px;
-      background: var(--blue); color: #fff;
-      text-decoration: none; font-size: 0.97rem; font-weight: 700;
-      padding: 14px 26px; border-radius: 100px;
-      transition: all 0.18s; box-shadow: 0 4px 20px rgba(0,122,255,0.3);
+    /* ── BETA SIGNUP FORM ── */
+    .beta-form-wrap {
+      width: 100%; max-width: 420px;
+      display: flex; flex-direction: column; gap: 8px;
     }
-    .btn-white:hover { background: var(--blue-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,122,255,0.38); }
-    .btn-white svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .beta-input-row {
+      display: flex; gap: 8px;
+    }
+
+    .beta-input {
+      flex: 1;
+      font-family: var(--font);
+      font-size: 0.95rem; font-weight: 500;
+      padding: 13px 18px;
+      border: 1.5px solid var(--sep);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .beta-input::placeholder { color: var(--muted); }
+    .beta-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
+    }
+
+    .beta-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue); color: #fff;
+      border: none; cursor: pointer;
+      font-family: var(--font); font-size: 0.9rem; font-weight: 700;
+      padding: 13px 20px; border-radius: 100px;
+      transition: all 0.18s; box-shadow: 0 4px 16px rgba(0,122,255,0.3);
+      white-space: nowrap;
+    }
+    .beta-btn:hover { background: var(--blue-dk); transform: translateY(-1px); }
+    .beta-btn:disabled { background: var(--muted); box-shadow: none; cursor: not-allowed; transform: none; }
+
+    .beta-gdpr {
+      font-size: 0.69rem; color: var(--muted); line-height: 1.5;
+      text-align: center; padding: 0 8px;
+    }
+    .beta-gdpr a { color: var(--muted); text-decoration: underline; }
+
+    .beta-success {
+      display: none;
+      align-items: center; gap: 10px; justify-content: center;
+      background: var(--white); border: 1.5px solid var(--green);
+      border-radius: 16px; padding: 14px 20px;
+      font-size: 0.9rem; font-weight: 600; color: var(--green);
+    }
+    .beta-success.show { display: flex; }
 
     .hero-note { font-size: 0.74rem; color: var(--muted); }
 
@@ -152,7 +197,6 @@
       filter: drop-shadow(0 16px 36px rgba(0,0,0,0.15));
     }
 
-    /* Text styles */
     .s-label {
       display: inline-block; font-size: 0.7rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
@@ -169,7 +213,6 @@
       font-size: 1rem; line-height: 1.68; color: var(--muted); max-width: 480px;
     }
 
-    /* Feature points */
     .fp-list { margin-top: 28px; display: flex; flex-direction: column; gap: 20px; }
 
     .fp { display: flex; align-items: flex-start; gap: 14px; }
@@ -185,7 +228,6 @@
     .fp p  { font-size: 0.84rem; color: var(--muted); line-height: 1.56; }
     .fp p strong { color: var(--text); font-weight: 600; }
 
-    /* Script toggle */
     .script-toggle {
       display: inline-flex; margin-top: 10px;
       background: var(--white); border-radius: 100px; padding: 3px; gap: 2px;
@@ -251,17 +293,10 @@
       max-width: 380px; margin: 0 auto 28px;
     }
 
-    .btn-blue {
-      display: inline-flex; align-items: center; gap: 9px;
-      background: var(--blue); color: #fff;
-      text-decoration: none; font-size: 0.97rem; font-weight: 700;
-      padding: 14px 26px; border-radius: 100px;
-      transition: all 0.18s; box-shadow: 0 4px 20px rgba(0,122,255,0.3);
+    .cta-form-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      max-width: 420px; margin: 0 auto;
     }
-    .btn-blue:hover { background: var(--blue-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,122,255,0.38); }
-    .btn-blue svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-    .cta-note { display: block; margin-top: 10px; font-size: 0.74rem; color: var(--muted); }
 
     /* ── FOOTER ── */
     footer {
@@ -323,35 +358,54 @@
       <span class="app-icon">मेरा</span>
       Mera
     </a>
-    <a class="nav-cta" href="https://apps.apple.com/app/mera-hindi" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Download
+    <a class="nav-cta" href="#beta">
+      🧪 Join Beta
     </a>
   </nav>
 
-  <!-- ══ HERO — blue ══ -->
-  <section class="hero">
-    <div class="hero-badge">Hindi Vocabulary App for iPhone</div>
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="beta">
+    <div class="hero-badge">Now in Beta · iPhone</div>
     <h1>Learn Hindi with<br>Mera app</h1>
     <p class="hero-sub">Your lessons. Your vocabulary. Your pace. Mera is the Hindi companion that actually fits the way you learn.</p>
+
     <div class="hero-actions">
-      <a class="btn-white" href="https://apps.apple.com/app/mera-hindi" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Download on the App Store
-      </a>
-      <span class="hero-note">Free to download · iPhone</span>
+      <div class="beta-form-wrap">
+        <div class="beta-input-row">
+          <input
+            type="email"
+            id="hero-email"
+            class="beta-input"
+            placeholder="Your email address"
+            autocomplete="email"
+          />
+          <button class="beta-btn" id="hero-btn" onclick="submitBeta('hero-email', 'hero-success', 'hero-btn')">
+            Join Beta
+          </button>
+        </div>
+        <div class="beta-success" id="hero-success">
+          ✅ You're on the list! I'll send your TestFlight invite shortly.
+        </div>
+        <p class="beta-gdpr">
+          By submitting you agree to be added to the Mera TestFlight beta.
+          Your email is used solely to send your invite and will not be shared.
+          <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>
+        </p>
+      </div>
+      <span class="hero-note">Free · iPhone · App Store launch coming soon</span>
     </div>
+
     <div class="hero-img">
-      <img src="Mera_Screenshots_003.png" alt="Mera app showing home dashboard" />
+      <img src="https://i.imgur.com/RkNNulQ.png" alt="Mera app showing home dashboard" />
     </div>
   </section>
 
-  <!-- ══ SPLIT A — image left, content right ══ -->
+  <!-- ══ SPLIT A ══ -->
   <section class="split-section split-a">
     <div class="split-inner">
 
       <div class="feat-img reveal">
-        <img src="Mera_Screenshots_001.png" alt="Mera personal vocabulary dictionary" />
+        <img src="https://i.imgur.com/P0gg92j.png" alt="Mera personal vocabulary dictionary" />
       </div>
 
       <div class="feat-content reveal d1">
@@ -386,7 +440,7 @@
     </div>
   </section>
 
-  <!-- ══ SPLIT B — content left, image right ══ -->
+  <!-- ══ SPLIT B ══ -->
   <section class="split-section split-b">
     <div class="split-inner">
 
@@ -397,18 +451,18 @@
       </div>
 
       <div class="feat-img reveal d1">
-        <img src="Mera_Screenshots_002.png" alt="Mera exercise selection screen" />
+        <img src="https://i.imgur.com/ALq52La.png" alt="Mera exercise selection screen" />
       </div>
 
     </div>
   </section>
 
-  <!-- ══ SPLIT C — image left, content right ══ -->
+  <!-- ══ SPLIT C ══ -->
   <section class="split-section split-c">
     <div class="split-inner">
 
       <div class="feat-img reveal">
-        <img src="Mera_Screenshots_003.png" alt="Mera app home screen" />
+        <img src="https://i.imgur.com/RkNNulQ.png" alt="Mera app home screen" />
       </div>
 
       <div class="feat-content reveal d1">
@@ -464,14 +518,29 @@
 
   <!-- ══ CTA ══ -->
   <section class="cta-section">
-    <h2 class="reveal">Start learning.<br>Hindi, mera tarika.</h2>
-    <p class="reveal d1">Free to download. No account required. Your vocabulary, your script, your pace — from day one.</p>
-    <div class="reveal d2">
-      <a class="btn-blue" href="https://apps.apple.com/app/mera-hindi" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Download on the App Store
-      </a>
-      <span class="cta-note">Free · iPhone</span>
+    <h2 class="reveal">Try Mera before<br>the launch.</h2>
+    <p class="reveal d1">Join the beta — free, no account required. Give it a go and help shape the final app.</p>
+    <div class="reveal d2 cta-form-wrap">
+      <div class="beta-input-row" style="width:100%;">
+        <input
+          type="email"
+          id="cta-email"
+          class="beta-input"
+          placeholder="Your email address"
+          autocomplete="email"
+        />
+        <button class="beta-btn" id="cta-btn" onclick="submitBeta('cta-email', 'cta-success', 'cta-btn')">
+          Join Beta
+        </button>
+      </div>
+      <div class="beta-success" id="cta-success">
+        ✅ You're on the list! I'll send your TestFlight invite shortly.
+      </div>
+      <p class="beta-gdpr">
+        By submitting you agree to be added to the Mera TestFlight beta.
+        Your email is used solely to send your invite and will not be shared.
+      </p>
+      <span class="cta-note" style="margin-top:4px;">Free · iPhone · App Store launch coming soon</span>
     </div>
   </section>
 
@@ -479,16 +548,74 @@
   <footer>
     <span class="footer-logo">Mera</span>
     <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
-    <p style="margin-top:4px;">© 2026 Petalbe Technologies &nbsp;·&nbsp; <a href="mailto:hello@petalbe.com">hello@petalbe.com</a></p>
+    <p style="margin-top:4px;">© 2026 Petalbe Technologies &nbsp;·&nbsp; <a href="mailto:contact@petalbe.com">contact@petalbe.com</a></p>
   </footer>
 
   <script>
+    // ── Scroll reveal ──
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // ── Beta signup via Web3Forms ──
+    async function submitBeta(inputId, successId, btnId) {
+      const input = document.getElementById(inputId);
+      const successEl = document.getElementById(successId);
+      const btn = document.getElementById(btnId);
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@')) {
+        input.style.borderColor = '#FF3B30';
+        input.focus();
+        setTimeout(() => input.style.borderColor = '', 1500);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // ← replace with your key from web3forms.com
+            subject: '🧪 New Mera Beta Signup',
+            from_name: 'Mera Beta Signup',
+            email: email,
+            message: `New beta tester signup: ${email}`
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          successEl.classList.add('show');
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Join Beta';
+        alert('Something went wrong — please try again or email contact@petalbe.com directly.');
+      }
+    }
+
+    // Allow Enter key to submit
+    document.querySelectorAll('.beta-input').forEach(input => {
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const row = input.closest('.beta-input-row') || input.parentElement;
+          const btn = row.querySelector('.beta-btn');
+          if (btn) btn.click();
+        }
+      });
+    });
   </script>
 </body>
 </html>

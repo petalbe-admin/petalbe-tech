@@ -109,60 +109,17 @@
       animation: fadeUp 0.5s var(--ease) 0.24s both;
     }
 
-    /* ── BETA SIGNUP FORM ── */
-    .beta-form-wrap {
-      width: 100%; max-width: 420px;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-
-    .beta-input-row {
-      display: flex; gap: 8px;
-    }
-
-    .beta-input {
-      flex: 1;
-      font-family: var(--font);
-      font-size: 0.95rem; font-weight: 500;
-      padding: 13px 18px;
-      border: 1.5px solid var(--sep);
-      border-radius: 100px;
-      background: var(--white);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.18s, box-shadow 0.18s;
-    }
-    .beta-input::placeholder { color: var(--muted); }
-    .beta-input:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
-    }
-
+    /* ── BETA BUTTON ── */
     .beta-btn {
       display: inline-flex; align-items: center; gap: 7px;
       background: var(--blue); color: #fff;
-      border: none; cursor: pointer;
+      text-decoration: none;
       font-family: var(--font); font-size: 0.9rem; font-weight: 700;
-      padding: 13px 20px; border-radius: 100px;
+      padding: 13px 24px; border-radius: 100px;
       transition: all 0.18s; box-shadow: 0 4px 16px rgba(0,122,255,0.3);
       white-space: nowrap;
     }
     .beta-btn:hover { background: var(--blue-dk); transform: translateY(-1px); }
-    .beta-btn:disabled { background: var(--muted); box-shadow: none; cursor: not-allowed; transform: none; }
-
-    .beta-gdpr {
-      font-size: 0.69rem; color: var(--muted); line-height: 1.5;
-      text-align: center; padding: 0 8px;
-    }
-    .beta-gdpr a { color: var(--muted); text-decoration: underline; }
-
-    .beta-success {
-      display: none;
-      align-items: center; gap: 10px; justify-content: center;
-      background: var(--white); border: 1.5px solid var(--green);
-      border-radius: 16px; padding: 14px 20px;
-      font-size: 0.9rem; font-weight: 600; color: var(--green);
-    }
-    .beta-success.show { display: flex; }
 
     .hero-note { font-size: 0.74rem; color: var(--muted); }
 
@@ -484,27 +441,9 @@
     <p class="hero-sub">Your lessons. Your vocabulary. Your pace. Mera is the Hindi companion that actually fits the way you learn.</p>
 
     <div class="hero-actions">
-      <div class="beta-form-wrap">
-        <div class="beta-input-row">
-          <input
-            type="email"
-            id="hero-email"
-            class="beta-input"
-            placeholder="Your email address"
-            autocomplete="email"
-          />
-          <button class="beta-btn" id="hero-btn" onclick="submitBeta('hero-email', 'hero-success', 'hero-btn')">
-            Join Beta
-          </button>
-        </div>
-        <div class="beta-success" id="hero-success">
-          ✅ You're on the list! I'll send your TestFlight invite shortly.
-        </div>
-        <p class="beta-gdpr">
-          By submitting you agree to be added to the Mera TestFlight beta.
-          Your email is used solely to send your invite and will not be shared.
-        </p>
-      </div>
+      <a class="beta-btn" href="https://tech.petalbe.com/mera-beta" target="_blank" rel="noopener">
+        🧪 Join Beta
+      </a>
       <span class="hero-note">Free · iPhone · App Store launch on March 15, 2026</span>
     </div>
 
@@ -661,27 +600,11 @@
   <section class="cta-section">
     <h2 class="reveal">Try Mera before<br>the launch.</h2>
     <p class="reveal d1">Join the beta — free, no account required. Give it a go and help shape the final app.</p>
-    <div class="reveal d2 cta-form-wrap">
-      <div class="beta-input-row" style="width:100%;">
-        <input
-          type="email"
-          id="cta-email"
-          class="beta-input"
-          placeholder="Your email address"
-          autocomplete="email"
-        />
-        <button class="beta-btn" id="cta-btn" onclick="submitBeta('cta-email', 'cta-success', 'cta-btn')">
-          Join Beta
-        </button>
-      </div>
-      <div class="beta-success" id="cta-success">
-        ✅ You're on the list! I'll send your TestFlight invite shortly.
-      </div>
-      <p class="beta-gdpr">
-        By submitting you agree to be added to the Mera TestFlight beta.
-        Your email is used solely to send your invite and will not be shared.
-      </p>
-      <span class="hero-note" style="margin-top:4px;">Free · iPhone · App Store launch on March 15, 2026</span>
+    <div class="reveal d2" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+      <a class="beta-btn" href="https://tech.petalbe.com/mera-beta" target="_blank" rel="noopener">
+        🧪 Join Beta
+      </a>
+      <span class="hero-note">Free · iPhone · App Store launch on March 15, 2026</span>
     </div>
   </section>
 
@@ -734,7 +657,7 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ── Beta signup via Web3Forms ──
+    // ── (no form JS needed) // via Web3Forms ──
     async function submitBeta(inputId, successId, btnId) {
       const input = document.getElementById(inputId);
       const successEl = document.getElementById(successId);

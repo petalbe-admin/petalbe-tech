@@ -608,102 +608,15 @@
     </div>
   </section>
 
-  <!-- ══ CROSS-PRODUCT PROMOTION ══ -->
-  <section class="cross-section">
-    <div class="cross-inner">
-      <span class="cross-label reveal">Also from Petalbe Technologies</span>
-      <h2 class="cross-title reveal d1">More apps you might love</h2>
-      <div class="cross-cards">
-
-        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="cross-card reveal d1">
-            <div class="cross-icon cross-icon-luma">🌙</div>
-            <div class="cross-card-body">
-              <h3>Luma</h3>
-              <p>Cycle-aware fasting & wellness for women. Coming soon.</p>
-            </div>
-            <span class="cross-card-arrow">→</span>
-          </div>
-        </a>
-
-        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="cross-card reveal d2">
-            <div class="cross-icon cross-icon-petalbe">🌿</div>
-            <div class="cross-card-body">
-              <h3>Petalbe Technologies</h3>
-              <p>Human-centred digital products inspired by nature, backed by science.</p>
-            </div>
-            <span class="cross-card-arrow">→</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">Mera</span>
-      <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
-      <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-        <a href="/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf9f8a9b8e838d8ac18c8082"><span class="__cf_email__" data-cfemail="187b77766c797b6c58687d6c79747a7d367b7775">[email&#160;protected]</span></a>
-      </div>
-      <p style="margin-top:4px;">© 2026 Petalbe Technologies</p>
+    <div class="container">
+        <p>&copy; Petalbe Technologies. All rights reserved.</p>
+        <div style="margin-top: 15px;">
+            <a href="impressum.html">Impressum</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
     </div>
   </footer>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ── (no form JS needed) // via Web3Forms ──
-    async function submitBeta(inputId, successId, btnId) {
-      const input = document.getElementById(inputId);
-      const successEl = document.getElementById(successId);
-      const btn = document.getElementById(btnId);
-      const email = input.value.trim();
-
-      if (!email || !email.includes('@')) {
-        input.style.borderColor = '#FF3B30';
-        input.focus();
-        setTimeout(() => input.style.borderColor = '', 1500);
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            access_key: '0067e2d1-03d5-42f9-b270-f20b0ba8e903',
-            subject: '🧪 New Mera Beta Signup',
-            from_name: 'Mera Beta Signup',
-            email: email,
-            message: `New beta tester signup: ${email}`
-          })
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-          input.style.display = 'none';
-          btn.style.display = 'none';
-          successEl.classList.add('show');
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (err) {
-        btn.disabled = false;
-        btn.textContent = 'Join Beta';
-        alert('Something went wrong — please try again or email contact@petalbe.com directly.');
-      }
-    }
-
-    // Allow Enter key to submit
-    document.querySelectorAll('.beta-input').forEach(input => {
-      input.addEventListener('keydown', e => {
-        if
+</body>
+</html>

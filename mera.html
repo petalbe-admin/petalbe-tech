@@ -123,7 +123,7 @@
 
     .hero-note { font-size: 0.74rem; color: var(--muted); }
 
-    /* ── HERO DUAL IMAGES — both same size ── */
+    /* ── HERO DUAL IMAGES ── */
     .hero-img-duo {
       margin: 52px auto 0; width: 100%;
       display: flex; align-items: flex-end; justify-content: center;
@@ -135,7 +135,15 @@
       display: block;
       filter: drop-shadow(0 20px 40px rgba(0,0,0,0.22));
       border-radius: 28px;
-      width: 43%; max-width: 210px;
+    }
+
+    .hero-img-duo .img-main {
+      width: 46%; max-width: 220px;
+    }
+
+    .hero-img-duo .img-secondary {
+      width: 40%; max-width: 195px;
+      margin-bottom: 20px;
     }
 
     /* ── SPLIT SECTIONS — alternating ── */
@@ -404,7 +412,8 @@
       .cross-cards { flex-direction: row; justify-content: center; }
       .cross-card { max-width: 380px; }
 
-      .hero-img-duo img { max-width: 230px; }
+      .hero-img-duo .img-main { max-width: 240px; }
+      .hero-img-duo .img-secondary { max-width: 215px; }
     }
 
     @media (min-width: 1024px) {
@@ -439,101 +448,13 @@
     </div>
 
     <div class="hero-img-duo">
-      <img src="https://i.imgur.com/Bh8p5kw.png" alt="Mera app home dashboard" />
-      <img src="https://i.imgur.com/IKirOJ4.png" alt="Mera app practice screen" />
+      <img class="img-main" src="https://i.imgur.com/Bh8p5kw.png" alt="Mera app home dashboard" />
+      <img class="img-secondary" src="https://i.imgur.com/IKirOJ4.png" alt="Mera app practice screen" />
     </div>
   </section>
 
-  <!-- ══ SPLIT A — Your vocabulary ══ -->
+  <!-- ══ SPLIT A — Conversational First ══ -->
   <section class="split-section split-a">
-    <div class="split-inner">
-
-      <div class="feat-img-duo reveal">
-        <img class="img-a" src="https://i.imgur.com/P0gg92j.png" alt="Mera personal vocabulary dictionary" />
-        <img class="img-b" src="https://i.imgur.com/DHQIGMT.png" alt="Mera add new word screen" />
-      </div>
-
-      <div class="feat-content reveal d1">
-        <div class="s-label">Your vocabulary</div>
-        <h2 class="s-title">Words that are<br>relevant to you.</h2>
-        <p class="s-body">Most apps give you their word list. Mera lets you build yours — from your actual lessons, with your tutor, in the order that makes sense for you.</p>
-        <div class="fp-list">
-          <div class="fp">
-            <div class="fp-icon">✏️</div>
-            <div>
-              <h4>Add words as you learn them</h4>
-              <p>Heard a new word in conversation? Add it in seconds. Your dictionary grows with you.</p>
-            </div>
-          </div>
-          <div class="fp">
-            <div class="fp-icon">📄</div>
-            <div>
-              <h4>Import from lesson documents</h4>
-              <p>Upload many words in one go via CSV file. More upload options and content parsing coming soon!</p>
-            </div>
-          </div>
-          <div class="fp">
-            <div class="fp-icon">☁️</div>
-            <div>
-              <h4>Syncs across your devices</h4>
-              <p>iCloud keeps everything in sync automatically. No account, no login needed.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ SPLIT B — Exercises ══ -->
-  <section class="split-section split-b">
-    <div class="split-inner">
-
-      <div class="feat-content reveal">
-        <div class="s-label">Practice modes</div>
-        <h2 class="s-title">Six exercises.<br>One goal.</h2>
-        <p class="s-body">From gentle warm-ups to full recall challenges — Mera moves you through each level deliberately, always using your own vocabulary.</p>
-        <div class="fp-list">
-          <div class="fp">
-            <div class="fp-icon">🃏</div>
-            <div>
-              <h4>Flashcards</h4>
-              <p>Warm up by flipping through your words. Easy and effective.</p>
-            </div>
-          </div>
-          <div class="fp">
-            <div class="fp-icon">☑️</div>
-            <div>
-              <h4>Multiple choice, matching</h4>
-              <p>Build recognition and recall through structured practice formats.</p>
-            </div>
-          </div>
-          <div class="fp">
-            <div class="fp-icon">⌨️</div>
-            <div>
-              <h4>Type the answer & gender quiz</h4>
-              <p>Test active recall by typing, and master Hindi noun genders with a dedicated quiz.</p>
-            </div>
-          </div>
-          <div class="fp">
-            <div class="fp-icon">📊</div>
-            <div>
-              <h4>Smart spaced repetition</h4>
-              <p>Science-backed intervals resurface words right before you forget them. Mastery tracked per word.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feat-img reveal d1">
-        <img src="https://i.imgur.com/ALq52La.png" alt="Mera exercise selection screen" />
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ SPLIT C — Conversational First ══ -->
-  <section class="split-section split-c">
     <div class="split-inner">
 
       <div class="feat-img reveal">
@@ -572,8 +493,95 @@
     </div>
   </section>
 
+  <!-- ══ SPLIT B — Your vocabulary ══ -->
+  <section class="split-section split-b">
+    <div class="split-inner">
+
+      <div class="feat-content reveal">
+        <div class="s-label">Your vocabulary</div>
+        <h2 class="s-title">Words that are<br>relevant to you.</h2>
+        <p class="s-body">Most apps give you their word list. Mera lets you build yours — from your actual lessons, with your tutor, in the order that makes sense for you.</p>
+        <div class="fp-list">
+          <div class="fp">
+            <div class="fp-icon">✏️</div>
+            <div>
+              <h4>Add words as you learn them</h4>
+              <p>Heard a new word in conversation? Add it in seconds. Your dictionary grows with you.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">📄</div>
+            <div>
+              <h4>Import from lesson documents</h4>
+              <p>Upload many words in one go via CSV file. More upload options and content parsing coming soon!</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">☁️</div>
+            <div>
+              <h4>Syncs across your devices</h4>
+              <p>iCloud keeps everything in sync automatically. No account, no login needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-img-duo reveal d1">
+        <img class="img-a" src="https://i.imgur.com/P0gg92j.png" alt="Mera personal vocabulary dictionary" />
+        <img class="img-b" src="https://i.imgur.com/DHQIGMT.png" alt="Mera add new word screen" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SPLIT C — Exercises ══ -->
+  <section class="split-section split-c">
+    <div class="split-inner">
+
+      <div class="feat-img reveal">
+        <img src="https://i.imgur.com/ALq52La.png" alt="Mera exercise selection screen" />
+      </div>
+
+      <div class="feat-content reveal d1">
+        <div class="s-label">Practice modes</div>
+        <h2 class="s-title">Six exercises.<br>One goal.</h2>
+        <p class="s-body">From gentle warm-ups to full recall challenges — Mera moves you through each level deliberately, always using your own vocabulary.</p>
+        <div class="fp-list">
+          <div class="fp">
+            <div class="fp-icon">🃏</div>
+            <div>
+              <h4>Flashcards</h4>
+              <p>Warm up by flipping through your words. Easy and effective.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">☑️</div>
+            <div>
+              <h4>Multiple choice, matching, fill-in-blank</h4>
+              <p>Build recognition and recall through structured practice formats.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">⌨️</div>
+            <div>
+              <h4>Type the answer & gender quiz</h4>
+              <p>Test active recall by typing, and master Hindi noun genders with a dedicated quiz.</p>
+            </div>
+          </div>
+          <div class="fp">
+            <div class="fp-icon">📊</div>
+            <div>
+              <h4>Smart spaced repetition</h4>
+              <p>Science-backed intervals resurface words right before you forget them. Mastery tracked per word.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ══ QUOTE ══ -->
-  <!--
   <section class="quote-section">
     <div class="quote-inner">
       <span class="quote-mark reveal">"</span>
@@ -582,12 +590,11 @@
         <div class="quote-avatar">🎓</div>
         <div>
           <span class="quote-name">Madhvi Sharma</span>
-          <span class="quote-role">Hindi Language Tutor · Founding advisor</span>
+          <span class="quote-role">Hindi Language Tutor · Co-creator &amp; advisor, Mera</span>
         </div>
       </div>
     </div>
   </section>
-  -->
 
   <!-- ══ CTA ══ -->
   <section class="cta-section">
@@ -601,19 +608,102 @@
     </div>
   </section>
 
-  <footer>
-        <div class="container">
-            <p>&copy; Petalbe Technologies. All rights reserved.</p>
-            <div style="margin-top: 15px;">
-                <a href="impressum.html">Impressum</a>
-                <a href="privacypolicy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
-            </div>
-        </div>
-    </footer>
+  <!-- ══ CROSS-PRODUCT PROMOTION ══ -->
+  <section class="cross-section">
+    <div class="cross-inner">
+      <span class="cross-label reveal">Also from Petalbe Technologies</span>
+      <h2 class="cross-title reveal d1">More apps you might love</h2>
+      <div class="cross-cards">
 
-  <script>
-    // ── (no form JS needed) ──
-  </script>
-</body>
-</html>
+        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="cross-card reveal d1">
+            <div class="cross-icon cross-icon-luma">🌙</div>
+            <div class="cross-card-body">
+              <h3>Luma</h3>
+              <p>Cycle-aware fasting & wellness for women. Coming soon.</p>
+            </div>
+            <span class="cross-card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://petalbe.com" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="cross-card reveal d2">
+            <div class="cross-icon cross-icon-petalbe">🌿</div>
+            <div class="cross-card-body">
+              <h3>Petalbe Technologies</h3>
+              <p>Human-centred digital products inspired by nature, backed by science.</p>
+            </div>
+            <span class="cross-card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Mera</span>
+      <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf9f8a9b8e838d8ac18c8082"><span class="__cf_email__" data-cfemail="187b77766c797b6c58687d6c79747a7d367b7775">[email&#160;protected]</span></a>
+      </div>
+      <p style="margin-top:4px;">© 2026 Petalbe Technologies</p>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ── (no form JS needed) // via Web3Forms ──
+    async function submitBeta(inputId, successId, btnId) {
+      const input = document.getElementById(inputId);
+      const successEl = document.getElementById(successId);
+      const btn = document.getElementById(btnId);
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@')) {
+        input.style.borderColor = '#FF3B30';
+        input.focus();
+        setTimeout(() => input.style.borderColor = '', 1500);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '0067e2d1-03d5-42f9-b270-f20b0ba8e903',
+            subject: '🧪 New Mera Beta Signup',
+            from_name: 'Mera Beta Signup',
+            email: email,
+            message: `New beta tester signup: ${email}`
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          successEl.classList.add('show');
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Join Beta';
+        alert('Something went wrong — please try again or email contact@petalbe.com directly.');
+      }
+    }
+
+    // Allow Enter key to submit
+    document.querySelectorAll('.beta-input').forEach(input => {
+      input.addEventListener('keydown', e => {
+        if

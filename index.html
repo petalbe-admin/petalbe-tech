@@ -152,10 +152,115 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .product-showcase h3 {
+        /* Mera: two-column layout with screenshot */
+        .product-showcase-mera {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .product-showcase-mera .product-text h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
             font-weight: 500;
+        }
+
+        .product-showcase-mera .product-text h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .product-showcase-mera .product-text h3 a:hover {
+            opacity: 0.7;
+        }
+
+        /* Beta badge */
+        .beta-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+            position: relative;
+            top: -2px;
+        }
+
+        section:nth-of-type(odd) .beta-badge {
+            background: rgba(34, 49, 63, 0.08);
+            color: #22313F;
+            border: 1px solid rgba(34, 49, 63, 0.2);
+        }
+
+        section:nth-of-type(even) .beta-badge {
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        /* Screenshot column */
+        .product-screenshot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .product-screenshot a {
+            display: block;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            line-height: 0;
+        }
+
+        .product-screenshot a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+        }
+
+        .product-screenshot img {
+            width: 200px;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+        }
+
+        /* Learn More link */
+        .learn-more {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s ease;
+        }
+
+        section:nth-of-type(odd) .learn-more {
+            color: #22313F;
+            opacity: 0.65;
+        }
+
+        section:nth-of-type(even) .learn-more {
+            color: #ffffff;
+            opacity: 0.65;
+        }
+
+        .learn-more:hover {
+            opacity: 1 !important;
+        }
+
+        .learn-more::after {
+            content: '→';
         }
 
         .product-note {
@@ -247,6 +352,20 @@
             .pillars-grid {
                 grid-template-columns: 1fr;
             }
+
+            .product-showcase-mera {
+                grid-template-columns: 1fr;
+            }
+
+            .product-screenshot {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .product-screenshot img {
+                width: 140px;
+            }
         }
     </style>
     
@@ -298,11 +417,26 @@
         <section>
             <div class="container">
                 <h2>Current Projects</h2>
-                <div class="product-showcase">
-                    <h3>Mera — Hindi Vocabulary Trainer</h3>
-                    <p>Mera is a personalised language learning companion designed to support cognitive health and meaningful cultural connection through Hindi vocabulary acquisition.</p>
-                    <p>Research shows that language learning can help preserve memory, attention, and mental flexibility as we age. Mera empowers learners to upload their own vocabulary lists, enabling focused practice aligned with classroom learning or personal study goals.</p>
-                    <p>Built with a variety of evidence-based learning methods — including flashcards, multiple choice exercises, and progress tracking — Mera adapts to individual learning patterns. Fully functional offline, it respects your time and attention while fostering sustainable language development.</p>
+
+                <!-- Mera: two-column with screenshot -->
+                <div class="product-showcase" style="margin-top: 30px;">
+                    <div class="product-showcase-mera">
+                        <div class="product-text">
+                            <h3>
+                                <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener">Mera — Hindi Vocabulary Trainer</a>
+                                <span class="beta-badge">Now in Beta</span>
+                            </h3>
+                            <p>Mera is a personalised language learning companion designed to support cognitive health and meaningful cultural connection through Hindi vocabulary acquisition.</p>
+                            <p>Research shows that language learning can help preserve memory, attention, and mental flexibility as we age. Mera empowers learners to upload their own vocabulary lists, enabling focused practice aligned with classroom learning or personal study goals.</p>
+                            <p>Built with a variety of evidence-based learning methods — including flashcards, multiple choice exercises, and progress tracking — Mera adapts to individual learning patterns. Fully functional offline, it respects your time and attention while fostering sustainable language development.</p>
+                            <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" class="learn-more">Learn more</a>
+                        </div>
+                        <div class="product-screenshot">
+                            <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" aria-label="Mera app — learn more">
+                                <img src="https://i.imgur.com/H4wP4sx.jpeg" alt="Mera Hindi Vocabulary Trainer — app screenshot" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-showcase">

@@ -233,6 +233,20 @@
             border-radius: 24px;
         }
 
+        /* Luma: two-column layout with screenshot on left */
+        .product-showcase-luma {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .product-showcase-luma .product-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
         /* Learn More link */
         .learn-more {
             font-size: 0.9rem;
@@ -353,7 +367,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .product-showcase-mera {
+            .product-showcase-mera,
+            .product-showcase-luma {
                 grid-template-columns: 1fr;
             }
 
@@ -439,10 +454,23 @@
                     </div>
                 </div>
 
-                <div class="product-showcase">
-                    <h3>Luma — Adaptive Fasting & Wellness</h3>
-                    <p>Luma is a cycle-aware fasting and nutrition app designed to support metabolic health and hormonal balance for women.</p>
-                    <p>Built on the principles of biological rhythm awareness, sustainability, and personal adaptability, Luma empowers users to develop a healthier relationship with food, energy, and their body.</p>
+                <!-- Luma: two-column with screenshot on left -->
+                <div class="product-showcase" style="margin-top: 30px;">
+                    <div class="product-showcase-luma">
+                        <div class="product-screenshot">
+                            <a href="#" aria-label="Luma app — coming soon">
+                                <img src="https://i.imgur.com/tnAovee.jpeg" alt="Luma Adaptive Fasting & Wellness — app screenshot" />
+                            </a>
+                        </div>
+                        <div class="product-text">
+                            <h3>
+                                Luma — Adaptive Fasting & Wellness
+                                <span class="beta-badge">In Development</span>
+                            </h3>
+                            <p>Luma is a cycle-aware fasting and nutrition app designed to support metabolic health and hormonal balance for women.</p>
+                            <p>Built on the principles of biological rhythm awareness, sustainability, and personal adaptability, Luma empowers users to develop a healthier relationship with food, energy, and their body.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -460,7 +488,7 @@
                 <h2>Contact</h2>
                 <div class="contact-simple">
                     <h3>Petalbe Technologies</h3>
-                    <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>
+                    <a href="/cdn-cgi/l/email-protection#f0939f9e84919384b0809584919c9295de939f9d"><span class="__cf_email__" data-cfemail="84e7ebeaf0e5e7f0c4f4e1f0e5e8e6e1aae7ebe9">[email&#160;protected]</span></a>
                 </div>
             </div>
         </section>
@@ -471,10 +499,4 @@
             <p>&copy; Petalbe Technologies. All rights reserved.</p>
             <div style="margin-top: 15px;">
                 <a href="impressum.html">Impressum</a>
-                <a href="privacypolicy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <a href="privacypolicy.html">P

@@ -4,34 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join the Mera Beta — Mera</title>
-  <meta name="description" content="Help test Mera before launch and get Premium free for your first month." />
+  <meta name="description" content="Help test Mera before launch. Your feedback shapes the final app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:    #007AFF;
-      --blue-dk: #0062CC;
-      --blue-lt: #EBF4FF;
-      --white:   #FFFFFF;
-      --text:    #1C1C1E;
-      --muted:   #8E8E93;
-      --sep:     #E5E5EA;
-      --dark:    #22313F;
-      --dark-2:  #1a2633;
-      --green:   #34C759;
-      --font:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+      --amber:    #E8732A;
+      --amber-lt: #FDF1E8;
+      --amber-dk: #B85A1A;
+      --navy:     #0F2D3A;
+      --navy-mid: #1E4A5C;
+      --white:    #FFFDF9;
+      --off:      #FAF7F2;
+      --text:     #1A1410;
+      --text-2:   #3D2E22;
+      --muted:    #7A6A5A;
+      --sep:      #E8E0D5;
+      --green:    #2D8A4E;
+      --green-lt: #EDF7F1;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "DM Sans", -apple-system, sans-serif;
+      --ease:     cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font);
-      background: var(--blue-lt);
+      font-family: var(--font-body);
+      background: var(--off);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -41,225 +45,285 @@
 
     /* ── NAV ── */
     nav {
-      padding: 16px 24px;
-      display: flex; align-items: center;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 16px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(255,253,249,0.95);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--sep);
     }
 
     .nav-logo {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 1.1rem; font-weight: 800; letter-spacing: -0.03em;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 700;
       color: var(--text); text-decoration: none;
     }
+    .logo-deva { font-size: 1.05rem; opacity: 0.6; }
 
-    .app-icon {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 30px; height: 30px; border-radius: 7px;
-      background: var(--blue); color: #fff;
-      font-size: 0.65rem; font-weight: 800; flex-shrink: 0;
+    .nav-back {
+      font-size: 0.82rem; font-weight: 500; color: var(--muted);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--amber); }
+
+    /* ── BACKGROUND TEXTURE ── */
+    .bg-texture {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url('images/Himalaya-Hero.webp');
+      background-size: cover; background-position: center 40%;
+      opacity: 0.04;
     }
 
-    /* ── MAIN LAYOUT ── */
+    /* ── MAIN ── */
     main {
-      flex: 1;
+      flex: 1; position: relative; z-index: 1;
       display: flex; align-items: center; justify-content: center;
-      padding: 48px 24px;
+      padding: 64px 24px 80px;
     }
 
     .page-inner {
-      width: 100%; max-width: 520px;
-      display: flex; flex-direction: column; gap: 32px; align-items: center;
+      width: 100%; max-width: 480px;
+      display: flex; flex-direction: column; gap: 36px; align-items: center;
       text-align: center;
     }
 
-    /* ── HEADER TEXT ── */
-    .page-header { display: flex; flex-direction: column; gap: 10px; }
+    /* ── HEADER ── */
+    .page-header {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      animation: fadeUp 0.7s var(--ease) 0.1s both;
+    }
 
-    .page-badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: var(--white); color: var(--blue);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 100px;
-      border: 1px solid var(--sep);
-      animation: fadeUp 0.4s var(--ease) both;
+    .page-eyebrow {
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 14px; display: block;
     }
 
     .page-title {
-      font-size: clamp(2rem, 6vw, 2.8rem);
-      font-weight: 800; line-height: 1.08; letter-spacing: -0.04em;
-      color: var(--text);
-      animation: fadeUp 0.4s var(--ease) 0.06s both;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 3.4rem);
+      font-weight: 600; line-height: 1.08; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .page-title em { font-style: italic; color: var(--amber); }
+
+    .title-bar {
+      width: 40px; height: 2px; background: var(--amber);
+      border-radius: 2px; margin: 16px auto 20px;
     }
 
     .page-sub {
-      font-size: 1rem; line-height: 1.65; color: var(--muted);
-      max-width: 400px; margin: 0 auto;
-      animation: fadeUp 0.4s var(--ease) 0.12s both;
+      font-size: 1rem; line-height: 1.72; color: var(--muted);
+      max-width: 380px; font-weight: 300;
+    }
+    .page-sub strong { color: var(--text-2); font-weight: 600; }
+
+    /* ── PERK ROW ── */
+    .perk-row {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.7s var(--ease) 0.2s both;
     }
 
-    /* ── PERK PILL ── */
     .perk-pill {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 7px;
       background: var(--white);
-      border: 1.5px solid rgba(52, 199, 89, 0.4);
-      border-radius: 100px; padding: 8px 18px;
-      font-size: 0.88rem; font-weight: 600; color: var(--text);
-      animation: fadeUp 0.4s var(--ease) 0.18s both;
+      border: 1px solid var(--sep);
+      border-radius: 100px; padding: 8px 16px;
+      font-size: 0.82rem; font-weight: 500; color: var(--text-2);
     }
-
-    .perk-pill .perk-icon {
-      font-size: 1rem;
-    }
-
-    .perk-pill .perk-highlight {
-      color: var(--green);
+    .perk-pill .pill-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amber); flex-shrink: 0;
     }
 
     /* ── SIGNUP TILE ── */
     .signup-tile {
       width: 100%;
       background: var(--white);
+      border: 1px solid var(--sep);
       border-radius: 22px;
-      padding: 32px 28px 28px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+      padding: 36px 32px 32px;
+      box-shadow: 0 8px 40px rgba(26,20,16,0.07), 0 1px 4px rgba(26,20,16,0.04);
       display: flex; flex-direction: column; gap: 20px;
-      animation: fadeUp 0.5s var(--ease) 0.22s both;
+      animation: fadeUp 0.7s var(--ease) 0.25s both;
       text-align: left;
     }
 
+    .tile-heading {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--text); line-height: 1.2;
+    }
+
     .input-group {
-      display: flex; flex-direction: column; gap: 6px;
+      display: flex; flex-direction: column; gap: 7px;
     }
 
     .input-label {
-      font-size: 0.8rem; font-weight: 700; color: var(--text);
-      letter-spacing: 0.02em;
+      font-size: 0.75rem; font-weight: 600; color: var(--text);
+      letter-spacing: 0.06em; text-transform: uppercase;
     }
 
     .email-input {
-      font-family: var(--font);
-      font-size: 1rem; font-weight: 500;
+      font-family: var(--font-body);
+      font-size: 1rem; font-weight: 400;
       padding: 14px 18px;
       border: 1.5px solid var(--sep);
-      border-radius: 12px;
-      background: var(--white);
+      border-radius: 11px;
+      background: var(--off);
       color: var(--text);
       outline: none;
       width: 100%;
-      transition: border-color 0.18s, box-shadow 0.18s;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
     }
     .email-input::placeholder { color: var(--muted); }
     .email-input:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
+      border-color: var(--amber);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(232,115,42,0.12);
     }
 
     .input-hint {
-      font-size: 0.75rem; color: var(--muted); line-height: 1.5;
+      font-size: 0.76rem; color: var(--muted); line-height: 1.55;
     }
-
-    .requirement-note {
-      display: flex; align-items: flex-start; gap: 8px;
-      background: rgba(0,122,255,0.06);
-      border-radius: 10px; padding: 11px 14px;
-      font-size: 0.8rem; color: var(--text); line-height: 1.5;
-    }
-    .requirement-note .req-icon { flex-shrink: 0; margin-top: 1px; }
 
     .submit-btn {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--blue); color: #fff;
+      background: var(--amber); color: #fff;
       border: none; cursor: pointer;
-      font-family: var(--font); font-size: 1rem; font-weight: 700;
-      padding: 15px 24px; border-radius: 12px; width: 100%;
-      transition: all 0.18s; box-shadow: 0 4px 16px rgba(0,122,255,0.3);
+      font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+      padding: 15px 24px; border-radius: 11px; width: 100%;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(232,115,42,0.38);
+      letter-spacing: 0.01em;
     }
-    .submit-btn:hover { background: var(--blue-dk); transform: translateY(-1px); }
-    .submit-btn:disabled { background: var(--muted); box-shadow: none; cursor: not-allowed; transform: none; }
+    .submit-btn:hover { background: var(--amber-dk); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(232,115,42,0.45); }
+    .submit-btn:disabled { background: var(--muted); box-shadow: none; cursor: not-allowed; transform: none; opacity: 0.6; }
+
+    .privacy-note {
+      font-size: 0.73rem; color: var(--muted); line-height: 1.55;
+      text-align: center;
+    }
 
     /* ── SUCCESS STATE ── */
     .success-state {
       display: none;
-      flex-direction: column; align-items: center; gap: 12px;
+      flex-direction: column; align-items: center; gap: 14px;
       text-align: center; padding: 8px 0;
     }
     .success-state.show { display: flex; }
-    .success-icon { font-size: 2.5rem; }
-    .success-title { font-size: 1.2rem; font-weight: 800; color: var(--green); }
-    .success-body { font-size: 0.88rem; color: var(--muted); line-height: 1.6; max-width: 300px; }
+
+    .success-icon-wrap {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--green-lt);
+      border: 1px solid rgba(45,138,78,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 600; color: var(--green);
+    }
+
+    .success-body {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+      max-width: 300px;
+    }
 
     /* ── ANDROID NOTE ── */
     .android-note {
-      font-size: 0.76rem; color: var(--muted); line-height: 1.5;
-      animation: fadeUp 0.4s var(--ease) 0.3s both;
+      font-size: 0.76rem; color: var(--muted); line-height: 1.6;
+      animation: fadeUp 0.7s var(--ease) 0.35s both;
     }
 
     /* ── FOOTER ── */
     footer {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
-      color: rgba(255,255,255,0.35);
-      padding: 24px; text-align: center;
-      font-size: 0.76rem; line-height: 1.8;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px; text-align: center;
+      position: relative; z-index: 1;
     }
-    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
-    footer a:hover { color: var(--blue); }
-    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 16px; margin-top: 6px; }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px; display: block;
+    }
+    .footer-links { margin-bottom: 12px; }
+    .footer-links a {
+      color: rgba(255,255,255,0.3); text-decoration: none;
+      font-size: 0.78rem; margin: 0 10px; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    footer p { font-size: 0.73rem; color: rgba(255,255,255,0.18); }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: none; }
     }
 
-    @media (min-width: 600px) {
-      .signup-tile { padding: 36px 36px 32px; }
+    @media (max-width: 480px) {
+      .signup-tile { padding: 28px 22px 24px; }
+      nav { padding: 14px 20px; }
     }
   </style>
 </head>
 <body>
 
+  <div class="bg-texture"></div>
+
+  <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="/">
-      <span class="app-icon">मेरा</span>
-      Mera
+    <a class="nav-logo" href="index.html">
+      <span class="logo-deva">मेरा</span> Mera
     </a>
+    <a class="nav-back" href="index.html">← Back</a>
   </nav>
 
   <main>
     <div class="page-inner">
 
+      <!-- Header -->
       <div class="page-header">
-        <h1 class="page-title">Join the Beta Test</h1>
-        <p class="page-sub">We'd love your help testing Mera before the official launch. Your feedback shapes the final app.</p>
+        <span class="page-eyebrow">TestFlight Beta</span>
+        <h1 class="page-title">Help shape<br><em>Mera.</em></h1>
+        <div class="title-bar"></div>
+        <p class="page-sub">
+          We'd love your feedback before the official launch. Beta testers get early access and help build something <strong>genuinely useful</strong> for Hindi learners.
+        </p>
       </div>
 
+      <!-- Signup tile -->
       <div class="signup-tile">
+        <p class="tile-heading">Request your invite</p>
 
         <!-- Form state -->
         <div id="form-state" style="display: flex; flex-direction: column; gap: 16px;">
           <div class="input-group">
+            <!-- <label class="input-label" for="beta-email">Email address</label> -->
             <input
               type="email"
               id="beta-email"
               class="email-input"
-              placeholder="Enter your email"
+              placeholder="you@example.com"
               autocomplete="email"
             />
-            <p class="input-hint">Please use your Apple ID email. The beta app will be shared with you via TestFlight.</p>
+            <p class="input-hint">Please use your Apple ID email — that's the address TestFlight will send your invite to.</p>
           </div>
           <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">
-            Submit
+            Request Beta Access →
           </button>
+          <p class="privacy-note">No spam, ever. Your email is only used to send your TestFlight invite.</p>
         </div>
 
         <!-- Success state -->
         <div class="success-state" id="success-state">
-          <span class="success-icon">✅</span>
+          <div class="success-icon-wrap">✓</div>
           <p class="success-title">You're on the list!</p>
-          <p class="success-body">I'll send your TestFlight invite to your email shortly. Thank you for helping shape Mera!</p>
+          <p class="success-body">I'll send your TestFlight invite to your email shortly. Thank you for helping shape Mera — it genuinely means a lot.</p>
         </div>
-
       </div>
 
       <p class="android-note">Android user? We're working on something for you too.</p>
@@ -268,14 +332,14 @@
   </main>
 
   <footer>
-    <p>A <a href="https://petalbe.com" target="_blank" rel="noopener">Petalbe Technologies</a> product &nbsp;·&nbsp; Leipzig, Germany</p>
+    <span class="footer-logo">मेरा · Mera</span>
     <div class="footer-links">
       <a href="impressum.html">Impressum</a>
       <a href="privacypolicy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Use</a>
       <a href="mailto:contact@petalbe.com">contact@petalbe.com</a>
     </div>
-    <p style="margin-top:4px;">© 2026 Petalbe Technologies</p>
+    <p>© 2026 Petalbe Technologies · Leipzig, Germany</p>
   </footer>
 
   <script>
@@ -285,9 +349,13 @@
       const email = input.value.trim();
 
       if (!email || !email.includes('@')) {
-        input.style.borderColor = '#FF3B30';
+        input.style.borderColor = '#C0392B';
+        input.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.12)';
         input.focus();
-        setTimeout(() => input.style.borderColor = '', 1500);
+        setTimeout(() => {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+        }, 1800);
         return;
       }
 
@@ -299,7 +367,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            access_key: '0067e2d1-03d5-42f9-b270-f20b0ba8e903', // ← replace with your key from web3forms.com
+            access_key: '0067e2d1-03d5-42f9-b270-f20b0ba8e903',
             subject: '🧪 New Mera Beta Signup',
             from_name: 'Mera Beta',
             email: email,
@@ -317,7 +385,7 @@
         }
       } catch (err) {
         btn.disabled = false;
-        btn.textContent = 'Submit';
+        btn.textContent = 'Request Beta Access →';
         alert('Something went wrong — please try again or email contact@petalbe.com directly.');
       }
     }

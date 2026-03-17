@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petalbe Technologies</title>
+    <title>Petalbe Technologies | Thoughtful Apps for Learning and Wellbeing</title>
+    <meta name="description" content="Petalbe is a small, independent studio building thoughtful apps inspired by nature and backed by science." />
+    <meta property="og:title" content="Petalbe Technologies | Thoughtful Apps for Learning and Wellbeing" />
+    <meta property="og:description" content="A small, independent studio building thoughtful apps inspired by nature and backed by science." />
+    <meta property="og:url" content="https://tech.petalbe.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Yantramanav:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,6 +26,113 @@
             margin: 0;
         }
 
+        /* ── HAMBURGER NAV ── */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            pointer-events: none;
+        }
+
+        .hamburger {
+            pointer-events: all;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hamburger:hover { background: rgba(0,0,0,0.5); }
+
+        .hamburger span {
+            display: block;
+            height: 1.5px;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 260px;
+            background: linear-gradient(160deg, #22313F 0%, #1a2633 100%);
+            z-index: 199;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 32px 40px;
+        }
+
+        .nav-drawer.open { transform: translateX(0); }
+
+        .nav-drawer-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 20px;
+        }
+
+        .nav-drawer a {
+            display: block;
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: color 0.2s;
+        }
+
+        .nav-drawer a:last-of-type { border-bottom: none; }
+        .nav-drawer a:hover { color: #ffffff; }
+
+        .nav-drawer a:focus-visible {
+            outline: 2px solid rgba(255,255,255,0.6);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 198;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+        /* ── LAYOUT ── */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -32,7 +143,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
                         url('https://i.imgur.com/JkL4dCm.jpeg');
             background-size: cover;
             background-position: center;
@@ -64,22 +175,23 @@
 
         .subtitle {
             font-family: 'Yantramanav', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            line-height: 1.5;
-            opacity: 0.95;
+            line-height: 1.6;
+            opacity: 0.9;
         }
 
+        /* ── SECTIONS ── */
         section {
             padding: 80px 0;
         }
 
-        section:nth-of-type(odd) {
+        .section-light {
             background: #ffffff;
             color: #333333;
         }
 
-        section:nth-of-type(even) {
+        .section-dark {
             background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
             color: #ffffff;
         }
@@ -97,6 +209,7 @@
             max-width: 700px;
         }
 
+        /* ── PILLAR CARDS ── */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -110,19 +223,17 @@
             transition: transform 0.3s ease;
         }
 
-        section:nth-of-type(odd) .pillar-card {
+        .section-light .pillar-card {
             background: rgba(34, 49, 63, 0.05);
             border: 1px solid rgba(34, 49, 63, 0.1);
         }
 
-        section:nth-of-type(even) .pillar-card {
+        .section-dark .pillar-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .pillar-card:hover {
-            transform: translateY(-5px);
-        }
+        .pillar-card:hover { transform: translateY(-5px); }
 
         .pillar-card h3 {
             font-size: 1.3rem;
@@ -136,23 +247,16 @@
             margin: 0;
         }
 
+        /* ── PRODUCT SHOWCASES ── */
         .product-showcase {
             padding: 40px;
             border-radius: 16px;
             margin-top: 30px;
+            background: #eef1f4;
+            border: 1px solid rgba(34,49,63,0.1);
+            color: #22313F;
         }
 
-        section:nth-of-type(odd) .product-showcase {
-            background: rgba(34, 49, 63, 0.05);
-            border: 1px solid rgba(34, 49, 63, 0.1);
-        }
-
-        section:nth-of-type(even) .product-showcase {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Mera: two-column layout with screenshot */
         .product-showcase-mera {
             display: grid;
             grid-template-columns: 1fr 220px;
@@ -172,11 +276,14 @@
             transition: opacity 0.2s ease;
         }
 
-        .product-showcase-mera .product-text h3 a:hover {
-            opacity: 0.7;
+        .product-showcase-mera .product-text h3 a:hover { opacity: 0.7; }
+
+        .product-showcase-mera .product-text h3 a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 2px;
         }
 
-        /* Beta badge */
         .beta-badge {
             display: inline-block;
             font-size: 0.7rem;
@@ -190,21 +297,11 @@
             vertical-align: middle;
             position: relative;
             top: -2px;
-        }
-
-        section:nth-of-type(odd) .beta-badge {
-            background: rgba(34, 49, 63, 0.08);
+            background: rgba(34,49,63,0.08);
             color: #22313F;
-            border: 1px solid rgba(34, 49, 63, 0.2);
+            border: 1px solid rgba(34,49,63,0.2);
         }
 
-        section:nth-of-type(even) .beta-badge {
-            background: rgba(255,255,255,0.12);
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-
-        /* Screenshot column */
         .product-screenshot {
             display: flex;
             flex-direction: column;
@@ -216,14 +313,20 @@
             display: block;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            box-shadow: 0 0 0 6px #0a0a0a, 0 8px 28px rgba(0,0,0,0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             line-height: 0;
         }
 
         .product-screenshot a:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+            box-shadow: 0 0 0 6px #0a0a0a, 0 16px 36px rgba(0,0,0,0.32);
+        }
+
+        .product-screenshot a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+            border-radius: 26px;
         }
 
         .product-screenshot img {
@@ -233,7 +336,6 @@
             border-radius: 24px;
         }
 
-        /* Luma: two-column layout with screenshot on left */
         .product-showcase-luma {
             display: grid;
             grid-template-columns: 220px 1fr;
@@ -247,7 +349,48 @@
             font-weight: 500;
         }
 
-        /* Learn More link */
+        /* Product text is on light tile now */
+        .product-text p {
+            opacity: 1;
+            color: #444444;
+        }
+
+        .product-text .product-intro {
+            font-size: 1.05rem;
+            color: #555555;
+            margin-bottom: 14px;
+        }
+
+        .product-text .product-closing {
+            font-size: 1rem;
+            color: #555555;
+            margin-top: 14px;
+            margin-bottom: 16px;
+        }
+
+        .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 4px 0;
+        }
+
+        .product-bullets li {
+            font-size: 1rem;
+            color: #444444;
+            padding: 5px 0 5px 18px;
+            position: relative;
+            line-height: 1.55;
+            max-width: 700px;
+        }
+
+        .product-bullets li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #22313F;
+            font-weight: 500;
+        }
+
         .learn-more {
             font-size: 0.9rem;
             font-weight: 500;
@@ -257,64 +400,150 @@
             align-items: center;
             gap: 5px;
             transition: opacity 0.2s ease;
-        }
-
-        section:nth-of-type(odd) .learn-more {
             color: #22313F;
             opacity: 0.65;
         }
 
-        section:nth-of-type(even) .learn-more {
+        .learn-more:hover { opacity: 1 !important; }
+        .learn-more::after { content: '→'; }
+
+        .learn-more:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 2px;
+            opacity: 1;
+        }
+
+        /* ── LUMA NOTIFY FORM ── */
+        .luma-notify {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .luma-notify-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(34,49,63,0.5);
+        }
+
+        .luma-notify-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .luma-notify-input {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 0.97rem;
+            font-weight: 400;
+            padding: 11px 16px;
+            border: 1.5px solid rgba(34,49,63,0.25);
+            border-radius: 8px;
+            background: #ffffff;
+            color: #22313F;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+            transition: border-color 0.18s, box-shadow 0.18s;
+        }
+
+        .luma-notify-input::placeholder { color: rgba(34,49,63,0.35); }
+
+        .luma-notify-input:focus {
+            border-color: #22313F;
+            box-shadow: 0 0 0 3px rgba(34,49,63,0.08);
+        }
+
+        .luma-notify-input:focus-visible {
+            border-color: #22313F;
+            box-shadow: 0 0 0 3px rgba(34,49,63,0.08);
+        }
+
+        .luma-notify-btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 11px 22px;
+            background: #22313F;
             color: #ffffff;
-            opacity: 0.65;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.18s;
+            white-space: nowrap;
         }
 
-        .learn-more:hover {
-            opacity: 1 !important;
+        .luma-notify-btn:hover { background: #1a2633; transform: translateY(-1px); }
+        .luma-notify-btn:disabled { background: rgba(34,49,63,0.3); cursor: not-allowed; transform: none; }
+
+        .luma-notify-btn:focus-visible {
+            outline: 2px solid #22313F;
+            outline-offset: 2px;
         }
 
-        .learn-more::after {
-            content: '→';
+        .luma-notify-success {
+            display: none;
+            font-size: 0.92rem;
+            color: rgba(34,49,63,0.7);
+            padding: 4px 0;
         }
 
-        .product-note {
-            margin-top: 30px;
-            padding-top: 30px;
-            opacity: 0.7;
-            font-style: italic;
+        .luma-notify-success.show { display: block; }
+
+        /* ── CONTACT BUTTON ── */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 13px 28px;
+            /* CHANGED: navy background, white text */
+            background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
+            border: 1.5px solid #22313F;
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            transition: all 0.2s;
         }
 
-        section:nth-of-type(odd) .product-note {
-            border-top: 1px solid rgba(34, 49, 63, 0.1);
+        .contact-btn:hover {
+            background: #1a2633;
+            border-color: #1a2633;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(34,49,63,0.25);
         }
 
-        section:nth-of-type(even) .product-note {
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .contact-btn:focus-visible {
+            outline: 2px solid #22313F;
+            outline-offset: 3px;
+            border-radius: 8px;
         }
 
-        .contact-simple {
-            max-width: 700px;
-        }
+        /* ── CONTACT SECTION ── */
+        .contact-simple { max-width: 700px; }
 
         .contact-simple h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             font-weight: 500;
         }
 
-        .contact-simple a {
-            color: inherit;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-            font-size: 1.1rem;
+        .contact-simple p {
+            opacity: 0.78;
+            margin-bottom: 24px;
         }
 
-        .contact-simple a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
+        /* ── FOOTER ── */
         footer {
             padding: 40px 0;
             text-align: center;
@@ -331,8 +560,12 @@
             transition: opacity 0.3s ease;
         }
 
-        footer a:hover {
-            opacity: 0.7;
+        footer a:hover { opacity: 0.7; }
+
+        footer a:focus-visible {
+            outline: 2px solid rgba(255,255,255,0.6);
+            outline-offset: 2px;
+            border-radius: 2px;
         }
 
         footer p {
@@ -341,31 +574,20 @@
             margin: 0 auto;
         }
 
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .hero-content {
                 padding-left: 20px;
                 padding-right: 20px;
             }
 
-            .company-name {
-                font-size: 2.5rem;
-            }
+            .company-name { font-size: 2.5rem; }
+            .tagline      { font-size: 1.2rem; }
+            .subtitle     { font-size: 1rem; }
 
-            .tagline {
-                font-size: 1.2rem;
-            }
+            section { padding: 50px 0; }
 
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 50px 0;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr;
-            }
+            .pillars-grid { grid-template-columns: 1fr; }
 
             .product-showcase-mera,
             .product-showcase-luma {
@@ -378,12 +600,13 @@
                 align-items: center;
             }
 
-            .product-screenshot img {
-                width: 140px;
-            }
+            .product-screenshot img { width: 140px; }
+
+            .luma-notify-row { flex-direction: column; }
+            .luma-notify-btn { width: 100%; }
         }
     </style>
-    
+
     <!-- Klaro Cookie Consent Manager -->
     <script defer type="text/javascript" src="klaro-config.js"></script>
     <script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
@@ -392,106 +615,144 @@
     <!-- End of Klaro -->
 </head>
 <body>
+
+    <!-- ── NAV OVERLAY ── -->
+    <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
+
+    <!-- ── NAV DRAWER ── -->
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Site navigation">
+        <p class="nav-drawer-label">Petalbe Technologies</p>
+        <a href="#our-work" onclick="closeNav()">Our Work</a>
+        <a href="#philosophy" onclick="closeNav()">Philosophy</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+    </nav>
+
+    <!-- ── NAV BAR ── -->
+    <div class="nav-bar">
+        <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- ── HERO ── -->
     <header>
         <div class="hero-content">
             <h1 class="company-name">PETALBE TECHNOLOGIES</h1>
-            <p class="tagline">Human-centred digital products inspired by nature, backed by science.</p>
+            <p class="tagline">Apps built around how humans actually work.</p>
+            <p class="subtitle">A small, independent studio building thoughtful apps. Inspired by nature, backed by science.</p>
         </div>
     </header>
 
     <main>
-        <section>
-            <div class="container">
-                <h2>Philosophy</h2>
-                <p>At Petalbe Technologies, we believe the most powerful technology does not dominate human behaviour. It supports it.</p>
-                <p>Our products are shaped by biological rhythms, behavioural science, and a deep respect for human experience. We design for clarity, calm, and long-term impact.</p>
-                <p>We draw inspiration from natural systems, scientific insight, and human-centred design to create digital experiences that support wellbeing.</p>
-            </div>
-        </section>
 
-        <section>
+        <!-- 1. OUR WORK (odd → light) -->
+        <section class="section-light" id="our-work">
             <div class="container">
-                <h2>What We Build</h2>
-                <div class="pillars-grid">
-                    <div class="pillar-card">
-                        <h3>Health & Wellbeing Tools</h3>
-                        <p>Human-centred applications supporting physical and mental resilience in everyday life.</p>
-                    </div>
-                    <div class="pillar-card">
-                        <h3>Science-Driven Systems</h3>
-                        <p>Products grounded in research, data intelligence, and evidence-based design principles.</p>
-                    </div>
-                    <div class="pillar-card">
-                        <h3>Thoughtful Digital Experiences</h3>
-                        <p>Calm, intuitive, and beautiful interfaces that respect attention and cognitive space.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <h2>Our Work</h2>
+                <p>Each app starts with a problem we had ourselves. Something we looked for, couldn't find done properly, and decided to build.</p>
 
-        <section>
-            <div class="container">
-                <h2>Current Projects</h2>
-
-                <!-- Mera: two-column with screenshot -->
-                <div class="product-showcase" style="margin-top: 30px;">
+                <!-- Mera -->
+                <div class="product-showcase">
                     <div class="product-showcase-mera">
                         <div class="product-text">
                             <h3>
-                                <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener">Mera — Hindi Vocabulary Trainer</a>
-                                <span class="beta-badge">Now in Beta</span>
+                                <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener">Mera — Hindi Vocabulary Companion</a>
+                                <a href="https://tech.petalbe.com/mera-beta" target="_blank" rel="noopener" class="beta-badge" style="text-decoration:none;">Now in Beta</a>
                             </h3>
-                            <p>Mera is a personalised language learning companion designed to support cognitive health and meaningful cultural connection through Hindi vocabulary acquisition.</p>
-                            <p>Research shows that language learning can help preserve memory, attention, and mental flexibility as we age. Mera empowers learners to upload their own vocabulary lists, enabling focused practice aligned with classroom learning or personal study goals.</p>
-                            <p>Built with a variety of evidence-based learning methods — including flashcards, multiple choice exercises, and progress tracking — Mera adapts to individual learning patterns. Fully functional offline, it respects your time and attention while fostering sustainable language development.</p>
+                            <p class="product-intro">For people studying Hindi with a tutor or structured course.</p>
+                            <ul class="product-bullets">
+                                <li>Instead of working through generic word lists, Mera lets you upload your own vocabulary from lessons and practise exactly what matters.</li>
+                                <li>Built around proven learning principles such as active recall and spaced repetition, expressed through flashcards and multiple choice exercises.</li>
+                                <li>Works fully offline, so you can practise whenever you have a moment — without distraction and without needing a connection.</li>
+                            </ul>
+                            <p class="product-closing">Language learning has been shown to support memory, attention, and cognitive flexibility over time. Mera makes that process focused, personal, and sustainable.</p>
                             <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" class="learn-more">Learn more</a>
                         </div>
                         <div class="product-screenshot">
                             <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" aria-label="Mera app — learn more">
-                                <img src="https://i.imgur.com/H4wP4sx.jpeg" alt="Mera Hindi Vocabulary Trainer — app screenshot" />
+                                <img src="https://imgur.com/d16Gl6b.jpeg" alt="Mera Hindi Vocabulary Trainer — app screenshot" />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Luma: two-column with screenshot on left -->
-                <div class="product-showcase" style="margin-top: 30px;">
+                <!-- Luma -->
+                <div class="product-showcase">
                     <div class="product-showcase-luma">
                         <div class="product-screenshot">
                             <a href="#" aria-label="Luma app — coming soon">
-                                <img src="https://i.imgur.com/tnAovee.jpeg" alt="Luma Adaptive Fasting & Wellness — app screenshot" />
+                                <img src="https://imgur.com/ALeezXI.jpeg" alt="Luma Adaptive Fasting & Wellness — app screenshot" />
                             </a>
                         </div>
                         <div class="product-text">
                             <h3>
-                                Luma — Adaptive Fasting & Wellness
+                                Luma — Personalised Fasting &amp; Keto for Women
                                 <span class="beta-badge">In Development</span>
                             </h3>
-                            <p>Luma is a cycle-aware fasting and nutrition app designed to support metabolic health and hormonal balance for women.</p>
-                            <p>Built on the principles of biological rhythm awareness, sustainability, and personal adaptability, Luma empowers users to develop a healthier relationship with food, energy, and their body.</p>
+                            <ul class="product-bullets">
+                                <li>Luma provides structured 30-day protocols tailored to your goals, experience, and hormonal status — whether you are cycling, in perimenopause, or post-menopause.</li>
+                                <li>Clear direction on when to fast, what to eat, and how to adjust over time, supported by a fasting tracker, personalised meal planning, and an AI coach that is always available when you need it.</li>
+                            </ul>
+                            <p class="product-closing">Most fasting and nutrition guidance is built around male physiology. Luma takes a different approach — grounding its recommendations in female biology, where timing, recovery, and hormonal rhythms matter. Based on current research, it is designed to help you apply fasting in a way that works with your body, not against it.</p>
+
+                            <div class="luma-notify">
+                                <p class="luma-notify-label">Get notified at launch</p>
+                                <div class="luma-notify-row">
+                                    <input
+                                        type="email"
+                                        id="luma-email"
+                                        class="luma-notify-input"
+                                        placeholder="your@email.com"
+                                        autocomplete="email"
+                                        aria-label="Email address for Luma launch notification"
+                                    />
+                                    <button class="luma-notify-btn" id="luma-btn" onclick="handleLumaSignup()">Notify me</button>
+                                </div>
+                                <p class="luma-notify-success" id="luma-success">You're on the list — we'll be in touch when Luma launches. ✓</p>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. PHILOSOPHY (even → dark) -->
+        <section class="section-dark" id="philosophy">
+            <div class="container">
+                <h2>Philosophy</h2>
+                <p>The best apps work with the grain of human nature — not against it. We use science not as decoration, but as a starting point. And we draw on natural systems — biological rhythms, ecological patterns, the way living things organise themselves — as a design compass.</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h3>Deep attention</h3>
+                        <p>The things worth doing — learning a language, understanding your body, knowing your materials — take time and focus. We build tools that reward that kind of attention.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Grounded in research</h3>
+                        <p>Every app we build starts with a body of work we actually read. Science shapes the features, the flow, and equally, what we choose not to build.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Built to last</h3>
+                        <p>We are not building for virality. We are building for people who will still be using an app a year from now because it genuinely helps.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <!-- 3. CONTACT (odd → light) -->
+        <section class="section-light" id="contact">
             <div class="container">
-                <h2>Privacy & Ethics</h2>
-                <p>We design with privacy-first principles and a responsible approach to data and artificial intelligence.</p>
-                <p>User trust is fundamental to everything we build. We are committed to transparent data practices and compliance with applicable data protection regulations.</p>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <h2>Contact</h2>
+                <h2>Get in Touch</h2>
                 <div class="contact-simple">
-                    <h3>Petalbe Technologies</h3>
-                    <a href="/cdn-cgi/l/email-protection#f0939f9e84919384b0809584919c9295de939f9d"><span class="__cf_email__" data-cfemail="84e7ebeaf0e5e7f0c4f4e1f0e5e8e6e1aae7ebe9">[email&#160;protected]</span></a>
+                    <p>Questions about our apps, early interest in what we are building, or simply a thoughtful hello — we are always glad to hear from people who care about well-made software.</p>
+                    <a href="/cdn-cgi/l/email-protection#4a2925243e2b293e0a3a2f3e2b26282f64292527" class="contact-btn">✉ <span class="__cf_email__" data-cfemail="2b4844455f4a485f6b5b4e5f4a47494e05484446">[email&#160;protected]</span></a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer>
@@ -499,4 +760,87 @@
             <p>&copy; Petalbe Technologies. All rights reserved.</p>
             <div style="margin-top: 15px;">
                 <a href="impressum.html">Impressum</a>
-                <a href="privacypolicy.html">P
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="https://tech.petalbe.com/terms">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        /* ── NAV ── */
+        function toggleNav() {
+            const drawer   = document.getElementById('nav-drawer');
+            const overlay  = document.getElementById('nav-overlay');
+            const burger   = document.getElementById('hamburger');
+            const isOpen   = drawer.classList.contains('open');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('open');
+            burger.classList.toggle('open');
+            burger.setAttribute('aria-expanded', String(!isOpen));
+        }
+
+        function closeNav() {
+            document.getElementById('nav-drawer').classList.remove('open');
+            document.getElementById('nav-overlay').classList.remove('open');
+            const burger = document.getElementById('hamburger');
+            burger.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeNav();
+        });
+
+        /* ── LUMA NOTIFY ── */
+        async function handleLumaSignup() {
+            const input   = document.getElementById('luma-email');
+            const btn     = document.getElementById('luma-btn');
+            const success = document.getElementById('luma-success');
+            const email   = input.value.trim();
+
+            if (!email || !email.includes('@')) {
+                input.style.borderColor = '#FF3B30';
+                input.focus();
+                setTimeout(() => input.style.borderColor = '', 1500);
+                return;
+            }
+
+            btn.disabled     = true;
+            btn.textContent  = 'Sending…';
+
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: '53c2bf6f-8617-43e4-bfa3-beb59e602ec9',
+                        subject:    'New Luma Launch Notification Signup',
+                        from_name:  'Luma Notify',
+                        email:      email,
+                        message:    `New Luma launch notification signup: ${email}`
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    input.style.display = 'none';
+                    btn.style.display   = 'none';
+                    success.classList.add('show');
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                btn.disabled    = false;
+                btn.textContent = 'Notify me';
+                alert('Something went wrong — please try again or email contact@petalbe.com directly.');
+            }
+        }
+ 
+        document.getElementById('luma-email').addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleLumaSignup();
+        });
+    </script>
+ 
+</body>
+</html>

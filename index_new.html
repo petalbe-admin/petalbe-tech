@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petalbe Technologies | Thoughtful Apps for Learning and Wellbeing</title>
+    <meta name="description" content="Petalbe is a small, independent iOS studio building considered apps inspired by nature and backed by science — for learning, wellness, and beyond." />
+    <meta property="og:title" content="Petalbe Technologies | Thoughtful Apps for Learning and Wellbeing" />
+    <meta property="og:description" content="A small, independent iOS studio building considered apps inspired by nature and backed by science." />
+    <meta property="og:url" content="https://tech.petalbe.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Yantramanav:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Yantramanav', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── HAMBURGER NAV ── */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            pointer-events: none;
+        }
+
+        .hamburger {
+            pointer-events: all;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hamburger:hover { background: rgba(0,0,0,0.5); }
+
+        .hamburger span {
+            display: block;
+            height: 1.5px;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 260px;
+            background: linear-gradient(160deg, #22313F 0%, #1a2633 100%);
+            z-index: 199;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 32px 40px;
+        }
+
+        .nav-drawer.open { transform: translateX(0); }
+
+        .nav-drawer-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 20px;
+        }
+
+        .nav-drawer a {
+            display: block;
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: color 0.2s;
+        }
+
+        .nav-drawer a:last-of-type { border-bottom: none; }
+        .nav-drawer a:hover { color: #ffffff; }
+
+        .nav-drawer a:focus-visible {
+            outline: 2px solid rgba(255,255,255,0.6);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 198;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('https://i.imgur.com/JkL4dCm.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding-left: 60px;
+        }
+
+        .company-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: #ffffff;
+            color: #333333;
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
+
+        /* ── PILLAR CARDS ── */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-light .pillar-card {
+            background: rgba(34, 49, 63, 0.05);
+            border: 1px solid rgba(34, 49, 63, 0.1);
+        }
+
+        .section-dark .pillar-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pillar-card:hover { transform: translateY(-5px); }
+
+        .pillar-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .pillar-card p {
+            opacity: 0.8;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* ── PRODUCT SHOWCASES ── */
+        .product-showcase {
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        .section-light .product-showcase {
+            background: rgba(34, 49, 63, 0.05);
+            border: 1px solid rgba(34, 49, 63, 0.1);
+        }
+
+        .section-dark .product-showcase {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .product-showcase-mera {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .product-showcase-mera .product-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .product-showcase-mera .product-text h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .product-showcase-mera .product-text h3 a:hover { opacity: 0.7; }
+
+        .product-showcase-mera .product-text h3 a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .beta-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+            position: relative;
+            top: -2px;
+        }
+
+        .section-light .beta-badge {
+            background: rgba(34, 49, 63, 0.08);
+            color: #22313F;
+            border: 1px solid rgba(34, 49, 63, 0.2);
+        }
+
+        .section-dark .beta-badge {
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .product-screenshot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .product-screenshot a {
+            display: block;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            line-height: 0;
+        }
+
+        .product-screenshot a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+        }
+
+        .product-screenshot a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+            border-radius: 26px;
+        }
+
+        .product-screenshot img {
+            width: 200px;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+        }
+
+        .product-showcase-luma {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .product-showcase-luma .product-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* stronger contrast on product body copy */
+        .product-text p {
+            opacity: 1;
+            color: inherit;
+        }
+
+        .section-dark .product-text p {
+            color: rgba(255,255,255,0.82);
+        }
+
+        .learn-more {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s ease;
+        }
+
+        .section-light .learn-more { color: #22313F; opacity: 0.65; }
+        .section-dark  .learn-more { color: #ffffff;  opacity: 0.65; }
+        .learn-more:hover { opacity: 1 !important; }
+        .learn-more::after { content: '→'; }
+
+        .learn-more:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 2px;
+            opacity: 1;
+        }
+
+        /* ── LUMA NOTIFY FORM ── */
+        .luma-notify {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .luma-notify-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .luma-notify-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .luma-notify-input {
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 0.97rem;
+            font-weight: 400;
+            padding: 11px 16px;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.07);
+            color: #ffffff;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+            transition: border-color 0.18s, box-shadow 0.18s;
+        }
+
+        .luma-notify-input::placeholder { color: rgba(255,255,255,0.35); }
+
+        .luma-notify-input:focus {
+            border-color: rgba(255,255,255,0.6);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
+        }
+
+        .luma-notify-input:focus-visible {
+            border-color: rgba(255,255,255,0.6);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
+
+        .luma-notify-btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 11px 22px;
+            background: #ffffff;
+            color: #22313F;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.18s;
+            white-space: nowrap;
+        }
+
+        .luma-notify-btn:hover { background: #e8edf2; transform: translateY(-1px); }
+        .luma-notify-btn:disabled { background: rgba(255,255,255,0.3); cursor: not-allowed; transform: none; }
+
+        .luma-notify-btn:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        .luma-notify-success {
+            display: none;
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.75);
+            padding: 4px 0;
+        }
+
+        .luma-notify-success.show { display: block; }
+
+        /* ── CONTACT BUTTON ── */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 13px 28px;
+            border: 1.5px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.7);
+        }
+
+        .contact-btn:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+            border-radius: 8px;
+        }
+
+        /* ── CONTACT SECTION ── */
+        .contact-simple { max-width: 700px; }
+
+        .contact-simple h3 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .contact-simple p {
+            opacity: 0.78;
+            margin-bottom: 24px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #22313F 0%, #1a2633 100%);
+            color: #ffffff;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover { opacity: 0.7; }
+
+        footer a:focus-visible {
+            outline: 2px solid rgba(255,255,255,0.6);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        footer p {
+            text-align: center;
+            max-width: none;
+            margin: 0 auto;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .company-name { font-size: 2.5rem; }
+            .tagline      { font-size: 1.2rem; }
+            .subtitle     { font-size: 1rem; }
+
+            section { padding: 50px 0; }
+
+            .pillars-grid { grid-template-columns: 1fr; }
+
+            .product-showcase-mera,
+            .product-showcase-luma {
+                grid-template-columns: 1fr;
+            }
+
+            .product-screenshot {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .product-screenshot img { width: 140px; }
+
+            .luma-notify-row { flex-direction: column; }
+            .luma-notify-btn { width: 100%; }
+        }
+    </style>
+
+    <!-- Klaro Cookie Consent Manager -->
+    <script defer type="text/javascript" src="klaro-config.js"></script>
+    <script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+    <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.css" />
+    <link rel="stylesheet" href="klaro-custom.css" />
+    <!-- End of Klaro -->
+</head>
+<body>
+
+    <!-- ── NAV OVERLAY ── -->
+    <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
+
+    <!-- ── NAV DRAWER ── -->
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Site navigation">
+        <p class="nav-drawer-label">Petalbe Technologies</p>
+        <a href="#our-work" onclick="closeNav()">Our Work</a>
+        <a href="#philosophy" onclick="closeNav()">Philosophy</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+    </nav>
+
+    <!-- ── NAV BAR ── -->
+    <div class="nav-bar">
+        <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- ── HERO ── -->
+    <header>
+        <div class="hero-content">
+            <h1 class="company-name">PETALBE TECHNOLOGIES</h1>
+            <p class="tagline">Apps built around how humans actually work.</p>
+            <p class="subtitle">A small, independent studio building thoughtful apps. Inspired by nature, backed by science.</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 1. OUR WORK (odd → light) -->
+        <section class="section-light" id="our-work">
+            <div class="container">
+                <h2>Our Work</h2>
+                <p>Each app starts with a problem we had ourselves. Something we looked for, couldn't find done properly, and decided to build.</p>
+
+                <!-- Mera -->
+                <div class="product-showcase">
+                    <div class="product-showcase-mera">
+                        <div class="product-text">
+                            <h3>
+                                <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener">Mera — Hindi Vocabulary Trainer</a>
+                                <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" class="beta-badge" style="text-decoration:none;">Now in Beta</a>
+
+                            </h3>
+                            <p>Mera is a language learning companion for people studying Hindi with a tutor or structured course.</p>
+                            <p>Instead of working through generic word lists, Mera lets you upload your own vocabulary from lessons and practise exactly what matters.</p>
+                            <p>The app is built around proven learning principles such as active recall and spaced repetition, expressed through a variety of formats like flashcards and multiple choice exercises.</p>
+                            <p>Mera works fully offline, so you can practise whenever you have a moment - without distraction and without needing a connection.</p>
+                            <p>Language learning has been shown to support memory, attention, and cognitive flexibility over time. Mera makes that process focused, personal, and sustainable.</p>
+                            <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" class="learn-more">Learn more</a>
+                        </div>
+                        <div class="product-screenshot">
+                            <a href="https://tech.petalbe.com/mera.html" target="_blank" rel="noopener" aria-label="Mera app — learn more">
+                                <img src="https://imgur.com/d16Gl6b.jpeg" alt="Mera Hindi Vocabulary Trainer — app screenshot" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luma -->
+                <div class="product-showcase">
+                    <div class="product-showcase-luma">
+                        <div class="product-screenshot">
+                            <a href="#" aria-label="Luma app — coming soon">
+                                <img src="https://imgur.com/ALeezXI.jpeg" alt="Luma Adaptive Fasting & Wellness — app screenshot" />
+                            </a>
+                        </div>
+                        <div class="product-text">
+                            <h3>
+                                Luma — Adaptive Fasting &amp; Wellness
+                                <span class="beta-badge">In Development</span>
+                            </h3>
+                            <p>Luma is a personalised fasting and keto guide for women.</p>
+                            <p>It provides structured 30-day protocols tailored to your goals, experience, and hormonal status — whether you are cycling, in perimenopause, or post-menopause.</p>
+                            <p>Luma gives you clear direction on when to fast, what to eat, and how to adjust over time, supported by a fasting tracker, personalised meal planning, and an AI coach that is always available when you need it.</p>
+                            <p>Most fasting and nutrition guidance is built around male physiology. Luma takes a different approach — grounding its recommendations in female biology, where timing, recovery, and hormonal rhythms matter. Based on current research, it is designed to help you apply fasting in a way that works with your body, not against it.</p>
+
+                            <div class="luma-notify">
+                                <p class="luma-notify-label">Get notified at launch</p>
+                                <div class="luma-notify-row">
+                                    <input
+                                        type="email"
+                                        id="luma-email"
+                                        class="luma-notify-input"
+                                        placeholder="your@email.com"
+                                        autocomplete="email"
+                                        aria-label="Email address for Luma launch notification"
+                                    />
+                                    <button class="luma-notify-btn" id="luma-btn" onclick="handleLumaSignup()">Notify me</button>
+                                </div>
+                                <p class="luma-notify-success" id="luma-success">You're on the list — we'll be in touch when Luma launches. ✓</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. PHILOSOPHY (even → dark) -->
+        <section class="section-dark" id="philosophy">
+            <div class="container">
+                <h2>Philosophy</h2>
+                <p>The best apps work with the grain of human nature — not against it. We use science not as decoration, but as a starting point. And we draw on natural systems — biological rhythms, ecological patterns, the way living things organise themselves — as a design compass.</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h3>Deep attention</h3>
+                        <p>The things worth doing — learning a language, understanding your body, knowing your materials — take time and focus. We build tools that reward that kind of attention.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Grounded in research</h3>
+                        <p>Every app we build starts with a body of work we actually read. Science shapes the features, the flow, and equally, what we choose not to build.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Built to last</h3>
+                        <p>We are not building for virality. We are building for people who will still be using an app a year from now because it genuinely helps.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONTACT (odd → light) -->
+        <section class="section-light" id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-simple">
+                    <p>Questions about our apps, early interest in what we are building, or simply a thoughtful hello — we are always glad to hear from people who care about well-made software.</p>
+                    <a href="mailto:contact@petalbe.com" class="contact-btn">✉ contact@petalbe.com</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Petalbe Technologies. All rights reserved.</p>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html">Impressum</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="https://tech.petalbe.com/terms">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ── NAV ── */
+        function toggleNav() {
+            const drawer   = document.getElementById('nav-drawer');
+            const overlay  = document.getElementById('nav-overlay');
+            const burger   = document.getElementById('hamburger');
+            const isOpen   = drawer.classList.contains('open');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('open');
+            burger.classList.toggle('open');
+            burger.setAttribute('aria-expanded', String(!isOpen));
+        }
+
+        function closeNav() {
+            document.getElementById('nav-drawer').classList.remove('open');
+            document.getElementById('nav-overlay').classList.remove('open');
+            const burger = document.getElementById('hamburger');
+            burger.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeNav();
+        });
+
+        /* ── LUMA NOTIFY ── */
+        async function handleLumaSignup() {
+            const input   = document.getElementById('luma-email');
+            const btn     = document.getElementById('luma-btn');
+            const success = document.getElementById('luma-success');
+            const email   = input.value.trim();
+
+            if (!email || !email.includes('@')) {
+                input.style.borderColor = '#FF3B30';
+                input.focus();
+                setTimeout(() => input.style.borderColor = '', 1500);
+                return;
+            }
+
+            btn.disabled     = true;
+            btn.textContent  = 'Sending…';
+
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: '0067e2d1-03d5-42f9-b270-f20b0ba8e903',
+                        subject:    '🌙 New Luma Launch Notification Signup',
+                        from_name:  'Luma Notify',
+                        email:      email,
+                        message:    `New Luma launch notification signup: ${email}`
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    input.style.display = 'none';
+                    btn.style.display   = 'none';
+                    success.classList.add('show');
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                btn.disabled    = false;
+                btn.textContent = 'Notify me';
+                alert('Something went wrong — please try again or email contact@petalbe.com directly.');
+            }
+        }
+
+        document.getElementById('luma-email').addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleLumaSignup();
+        });
+    </script>
+
+</body>
+</html>

@@ -139,7 +139,7 @@
         
         <h1>Privacy Policy for Mera</h1>
         
-        <p class="last-updated">Last Updated: February 16, 2026</p>
+        <p class="last-updated">Last Updated: March 22, 2026</p>
 
         <div class="intro">
             <p><strong>Your privacy matters.</strong> Mera is designed with privacy at its core - all vocabulary processing happens locally on your device, and your data syncs securely through Apple's iCloud. We never see your personal learning data, and we don't collect, sell, or share your information with third parties for marketing purposes.</p>
@@ -188,7 +188,7 @@
             <ul>
                 <li>Personal identification information (name, email, phone number) beyond your Apple ID for sync</li>
                 <li>Location data or GPS coordinates</li>
-                <li>Device identifiers for advertising purposes (we only use anonymized analytics identifiers for improving app functionality)</li>
+                <li>Device identifiers for advertising purposes</li>
                 <li>Browsing history or activity outside the app</li>
                 <li>Contacts, photos, or other sensitive device data</li>
                 <li>Payment information (handled entirely by Apple)</li>
@@ -252,62 +252,41 @@
         <div class="info-block">
             <h2>6. Analytics and Usage Data</h2>
             
-            <h3>6.1 Google Analytics for Firebase</h3>
-            <p>To understand how users interact with Mera and improve the app experience, we use <strong>Google Analytics for Firebase</strong>, provided by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland).</p>
-            
+            <h3>6.1 TelemetryDeck</h3>
+            <p>To understand how users interact with Mera and improve the app experience, we use <strong>TelemetryDeck</strong>, a privacy-friendly analytics service provided by TelemetryDeck GmbH, Von-der-Tann-Str. 54, 86159 Augsburg, Germany.</p>
+
             <h3>6.2 Purpose of Analytics</h3>
-            <p>We use Firebase Analytics to analyze app usage patterns, including:</p>
-            <ul>
-                <li>Which features are most popular (e.g., flashcards vs. typing exercises)</li>
-                <li>Vocabulary categories users engage with most</li>
-                <li>Exercise types users prefer</li>
-                <li>App stability and crash reporting</li>
-                <li>Performance metrics to optimize loading times</li>
-            </ul>
-            <p>This information helps us prioritize feature development and fix issues that affect user experience.</p>
+            <p>We use TelemetryDeck to understand general app usage patterns and app stability. This helps us prioritize improvements and fix issues that affect the user experience.</p>
             
-            <h3>6.3 Data Collected by Firebase Analytics</h3>
-            <p>When analytics are enabled, Firebase automatically collects:</p>
+            <h3>6.3 Data Collected</h3>
+            <p>TelemetryDeck processes the following data:</p>
             <ul>
-                <li><strong>App-Instance ID:</strong> An anonymous identifier that cannot be tied to your identity or Apple ID</li>
-                <li><strong>Device Information:</strong> iOS version, device model (e.g., iPhone 14), screen resolution, and language settings</li>
-                <li><strong>App Interaction Events:</strong> Which features you use (e.g., "completed flashcard exercise", "uploaded CSV file") without recording the actual vocabulary content</li>
-                <li><strong>Crash Reports:</strong> Technical data about app crashes to help us fix bugs</li>
-                <li><strong>Performance Data:</strong> App loading times and responsiveness metrics</li>
+                <li><strong>An anonymized, untraceable user identifier</strong> (per app installation — cannot be tied to your identity)</li>
+                <li><strong>A rounded timestamp</strong> (to the nearest hour)</li>
+                <li><strong>Device metadata:</strong> iOS version, app version, and device type</li>
             </ul>
-            
+
             <div class="highlight-box">
-                <p><strong>Important:</strong> Firebase Analytics does <strong>not</strong> collect or transmit:</p>
+                <p><strong>What is not collected:</strong></p>
                 <ul style="margin-top: 10px;">
-                    <li>Your vocabulary words or translations</li>
-                    <li>Your learning progress or quiz scores</li>
-                    <li>Your Apple ID or personal identification</li>
-                    <li>Any data that can identify you as an individual</li>
+                    <li>No IP addresses — not in logs, not in the database</li>
+                    <li>No cookies or tracking technologies</li>
+                    <li>No persistent identifiers that could be traced back to you</li>
+                    <li>No vocabulary words, translations, or learning progress</li>
+                    <li>No Apple ID or any personal information</li>
                 </ul>
             </div>
-            
-            <h3>6.4 How Google Uses This Data</h3>
-            <p>Google processes this anonymized data on our behalf to generate usage reports. Google may also use this data to improve its own services. For details on how Google processes data when you use partner apps:</p>
-            <p><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data when you use our partners' sites or apps</a></p>
-            
-            <h3>6.5 Data Retention</h3>
-            <p>Firebase Analytics retains event data for <strong>14 months</strong> by default. After this period, the data is automatically deleted from Google's servers. This retention period helps us analyze long-term usage trends while minimizing data storage.</p>
-            
-            <h3>6.6 Opt-Out Options</h3>
-            <p>You have full control over analytics sharing:</p>
-            <ul>
-                <li><strong>In-App Control:</strong> Go to Settings → Privacy in Mera and toggle off "Share Anonymous Analytics"</li>
-                <li><strong>iOS System Settings:</strong> You can also limit tracking at the system level:
-                    <ul style="margin-top: 10px;">
-                        <li>Go to iPhone Settings → Privacy & Security → Tracking</li>
-                        <li>Toggle off "Allow Apps to Request to Track"</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Disabling analytics does not affect any app functionality - all features work exactly the same whether analytics are on or off.</p>
-            
-            <h3>6.7 No Advertising Use</h3>
-            <p>We do <strong>not</strong> use Firebase Analytics data for advertising purposes, and we do not share this data with advertising networks. The data is used solely to understand app usage and improve features.</p>
+
+            <p>The TelemetryDeck SDK is fully open source: <a href="https://github.com/TelemetryDeck" target="_blank" rel="noopener">github.com/TelemetryDeck</a>. Further details on data processing: <a href="https://telemetrydeck.com/privacy" target="_blank" rel="noopener">telemetrydeck.com/privacy</a>.</p>
+
+            <h3>6.4 Legal Basis</h3>
+            <p>The use of TelemetryDeck is based on our legitimate interest in understanding how Mera is used in order to improve the app (Art. 6(1)(f) GDPR). The data collected is fully anonymized and cannot be linked to any individual.</p>
+
+            <h3>6.5 No Opt-Out Required</h3>
+            <p>Because TelemetryDeck collects only anonymized, non-personal data, no consent or opt-out mechanism is legally required under GDPR. Nevertheless, if you prefer not to share any usage data, you can disable analytics in Mera's Settings under Privacy.</p>
+
+            <h3>6.6 No Advertising Use</h3>
+            <p>We do <strong>not</strong> use analytics data for advertising purposes and do not share it with advertising networks. The data is used solely to understand app usage and improve features.</p>
         </div>
 
         <div class="info-block">
@@ -344,11 +323,10 @@
         <div class="info-block">
             <h2>9. International Data Transfers</h2>
             <p>Mera processes all data locally on your device. If you enable iCloud sync, your data is stored in Apple's iCloud infrastructure, which may involve international data transfers according to Apple's policies. Apple complies with applicable data protection laws including GDPR for European users.</p>
-            <p>Firebase Analytics data is processed by Google Ireland Limited and may be transferred to Google's servers in the United States and other countries. Google complies with the EU-U.S. Data Privacy Framework and uses standard contractual clauses for data transfers.</p>
+            <p>Analytics data processed via TelemetryDeck is handled by TelemetryDeck GmbH, based in Augsburg, Germany. Data is stored and processed within the EU and is not transferred to third countries.</p>
             <p>For more information:</p>
             <ul>
                 <li>Apple's privacy practices: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></li>
-                <li>Google's data transfer safeguards: <a href="https://policies.google.com/privacy/frameworks" target="_blank" rel="noopener">https://policies.google.com/privacy/frameworks</a></li>
             </ul>
         </div>
 
@@ -368,7 +346,7 @@
             <p>For users in the European Economic Area (EEA), United Kingdom, and Switzerland, we process your data based on:</p>
             <ul>
                 <li><strong>Contractual Necessity (Art. 6(1)(b) GDPR):</strong> Processing vocabulary and progress data is essential to provide the app's core learning functionality</li>
-                <li><strong>Legitimate Interest (Art. 6(1)(f) GDPR):</strong> Storing user preferences and settings to improve user experience, and processing anonymized analytics data via Firebase to improve app functionality, stability, and user experience</li>
+                <li><strong>Legitimate Interest (Art. 6(1)(f) GDPR):</strong> Storing user preferences and settings to improve user experience, and processing anonymized analytics data via TelemetryDeck to improve app functionality, stability, and user experience</li>
                 <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> Where applicable, such as enabling optional iCloud sync features or sharing analytics data (which you can opt out of at any time)</li>
             </ul>
         </div>

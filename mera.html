@@ -207,7 +207,6 @@
     }
     .section-title em { font-style: italic; color: var(--amber); }
 
-    /* Horizontal scroll track */
     .screens-track {
       display: flex;
       gap: 20px;
@@ -237,7 +236,6 @@
       letter-spacing: 0.01em;
     }
 
-    /* Scroll dots */
     .scroll-dots {
       display: flex; justify-content: center; gap: 7px;
       margin-top: 8px; padding: 0 24px;
@@ -249,7 +247,6 @@
     }
     .scroll-dot-item.active { background: var(--amber); transform: scale(1.3); }
 
-    /* On desktop: center and show all side by side */
     @media (min-width: 800px) {
       .screens-track {
         justify-content: center;
@@ -297,10 +294,7 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 32px rgba(0,0,0,0.07);
     }
-    /* Hide descriptions on mobile, show on desktop */
-    .feature-card p {
-      display: none;
-    }
+    .feature-card p { display: none; }
     @media (min-width: 900px) {
       .feature-card p { display: block; }
     }
@@ -331,6 +325,64 @@
     .feature-card p {
       font-size: 0.86rem; color: var(--muted); line-height: 1.62;
     }
+
+    /* ── BLOG STRIP ── */
+    .blog-section {
+      background: var(--white);
+      padding: 80px 24px;
+      border-bottom: 1px solid var(--sep);
+    }
+    .blog-inner { max-width: 960px; margin: 0 auto; }
+    .blog-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 32px; flex-wrap: wrap; gap: 12px;
+    }
+    .blog-header-left { display: flex; flex-direction: column; gap: 6px; }
+    .blog-read-all {
+      font-size: 0.82rem; font-weight: 500; color: var(--amber);
+      text-decoration: none; white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .blog-read-all:hover { color: var(--amber-dk); }
+
+    .blog-card {
+      display: flex; gap: 32px; align-items: flex-start;
+      background: var(--off);
+      border: 1px solid var(--sep);
+      border-radius: 18px;
+      padding: 32px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    }
+    .blog-card-tag {
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--amber-dk);
+      background: var(--amber-lt);
+      border: 1px solid rgba(232,115,42,0.18);
+      padding: 3px 9px; border-radius: 4px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .blog-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 500; line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.68;
+      margin-bottom: 20px;
+    }
+    .blog-card-link {
+      font-size: 0.82rem; font-weight: 600; color: var(--amber);
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .blog-card-arrow { transition: transform 0.2s; }
+    .blog-card:hover .blog-card-arrow { transform: translateX(4px); }
 
     /* ── CTA ── */
     .cta-section {
@@ -400,7 +452,7 @@
 
     @media (min-width: 1024px) {
       nav { padding: 16px 64px; }
-      .story-section, .features-section, .cta-section { padding: 104px 64px; }
+      .story-section, .features-section, .blog-section, .cta-section { padding: 104px 64px; }
       .screens-section { padding: 104px 0; }
     }
   </style>
@@ -524,15 +576,37 @@
         <div class="feature-card reveal d3">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24">
-              <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z"/>
-              <polyline points="9 12 11 14 15 10"/>
+              <path d="M4 7h16M4 12h10M4 17h7"/>
+              <circle cx="19" cy="17" r="3"/>
+              <path d="M19 14v3l2 1"/>
             </svg>
           </div>
-          <h3>Private by design</h3>
-          <p>Your vocabulary stays on your device and in your iCloud. No ads, no data selling, no third-party tracking.</p>
+          <h3>Choose your script</h3>
+          <p>Roman script by default — so you can focus on the words, not the writing system. Devanagari coming as an opt-in for when you're ready.</p>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG STRIP ══ -->
+  <section class="blog-section">
+    <div class="blog-inner">
+      <div class="blog-header">
+        <div class="blog-header-left">
+          <span class="section-label reveal">From the blog</span>
+          <h2 class="section-title reveal d1" style="font-size: clamp(1.5rem, 3vw, 2rem);">Hindi learning, <em>practically</em> speaking.</h2>
+        </div>
+      </div>
+
+      <a class="blog-card reveal d2" href="https://tech.petalbe.com/mera/blog/how-to-remember-hindi-vocabulary">
+        <div style="flex: 1; min-width: 0;">
+          <span class="blog-card-tag">Vocabulary</span>
+          <div class="blog-card-title">How to actually remember the Hindi vocabulary you're learning</div>
+          <div class="blog-card-excerpt">Most Hindi learners don't have a learning problem — they have a remembering problem. Here's why vocabulary disappears between lessons, and what the research says actually helps.</div>
+          <span class="blog-card-link">Read article <span class="blog-card-arrow">→</span></span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -580,7 +654,6 @@
     const dots = document.querySelectorAll(".scroll-dot-item");
 
     if (track && dots.length) {
-      // Dot click scrolls to card
       dots.forEach(dot => {
         dot.addEventListener("click", () => {
           const index = parseInt(dot.dataset.index);
@@ -591,7 +664,6 @@
         });
       });
 
-      // Update active dot on scroll
       track.addEventListener("scroll", () => {
         const cards = track.querySelectorAll(".screen-card");
         const trackCenter = track.scrollLeft + track.offsetWidth / 2;

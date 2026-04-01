@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ── -->
+  <title>How to Actually Remember Hindi Vocabulary You're Learning | Mera</title>
+  <meta name="description" content="Most Hindi learners lose vocabulary between lessons. Here's why it happens, and how to fix it — whether you're learning with a tutor, from a book, or on your own.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tech.petalbe.com/mera/blog/how-to-remember-hindi-vocabulary">
+
+  <!-- ── Open Graph (for sharing) ── -->
+  <meta property="og:title" content="How to Actually Remember Hindi Vocabulary You're Learning">
+  <meta property="og:description" content="Most Hindi learners lose vocabulary between lessons. Here's why it happens, and how to fix it.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tech.petalbe.com/mera/blog/how-to-remember-hindi-vocabulary">
+  <meta property="og:site_name" content="Mera — Hindi Vocabulary">
+
+  <!-- ── Schema.org: Article ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Actually Remember Hindi Vocabulary You're Learning",
+    "description": "Most Hindi learners lose vocabulary between lessons. Here's why it happens, and how to fix it — whether you're learning with a tutor, from a book, or on your own.",
+    "author": {
+      "@type": "Organization",
+      "name": "Petalbe Technologies",
+      "url": "https://tech.petalbe.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Petalbe Technologies",
+      "url": "https://tech.petalbe.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://tech.petalbe.com/mera/blog/how-to-remember-hindi-vocabulary"
+    }
+  }
+  </script>
+
+  <!-- ── Schema.org: FAQ ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best app for practising vocabulary from a Hindi tutor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mera is an iPhone app designed specifically for this. Unlike preset vocabulary apps, Mera lets you add the words your tutor assigns and then drills you on them using spaced repetition and five exercise types — flashcards, matching, multiple choice, typing, and gender quiz. It's free and requires no account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I remember Hindi vocabulary between lessons?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most effective method is spaced repetition — reviewing words at increasing intervals just before you'd forget them. After a lesson, add new vocabulary to a flashcard app and practice for five to ten minutes daily. Consistency matters far more than long study sessions. Apps like Mera handle the scheduling automatically so you don't have to track it manually."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use my own vocabulary in a Hindi flashcard app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most Hindi apps only offer preset word lists. Mera is different — it's built entirely around your own vocabulary. You add whatever words you're learning, from any source, and the app creates exercises from them. There's no built-in curriculum and no words you didn't choose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to memorise Hindi vocabulary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With spaced repetition, most learners find that a new word becomes reliably memorable after five to seven correctly-spaced reviews over two to three weeks. Practising five to ten minutes daily is more effective than longer, infrequent sessions. Twenty words practised consistently will stick better than two hundred words reviewed once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I learn Hindi in Roman script or Devanagari?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For conversational learners, starting in Roman script is completely valid and how most tutor-led learners begin. The priority is getting comfortable with the words themselves. Devanagari can be added once the vocabulary feels natural. Switching scripts mid-learning adds friction that can slow progress."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Mistakes Bank in a vocabulary app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Mistakes Bank automatically groups words you're struggling with into categories — words you just got wrong, words you fail repeatedly, words where you confuse gender, and words you're close to getting right. Instead of reviewing everything randomly, you can focus exactly where you need it most. Mera includes a Mistakes Bank as part of its free feature set."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --amber:    #E8732A;
+      --amber-lt: #FDF1E8;
+      --amber-dk: #B85A1A;
+      --navy:     #0F2D3A;
+      --navy-mid: #1E4A5C;
+      --white:    #FFFDF9;
+      --off:      #FAF7F2;
+      --text:     #1A1410;
+      --text-2:   #3D2E22;
+      --muted:    #7A6A5A;
+      --sep:      #E8E0D5;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "DM Sans", -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SITE NAV ── */
+    .site-nav {
+      background: rgba(255,253,249,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--sep);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-nav .wordmark {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wordmark-deva {
+      font-size: 1rem;
+      opacity: 0.55;
+      color: var(--text);
+    }
+
+    /* ── SITE FOOTER ── */
+    .site-footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 32px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-links { margin-bottom: 18px; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.32);
+      text-decoration: none;
+      font-size: 0.8rem;
+      margin: 0 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    .site-footer p { font-size: 0.74rem; color: rgba(255,255,255,0.2); }
+
+    /* ── ARTICLE WRAPPER ── */
+    .article-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--amber); }
+    .breadcrumb .sep { color: var(--sep); }
+
+    /* ── ARTICLE HEADER ── */
+    .article-header {
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .article-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .article-intro {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--text-2);
+      font-weight: 300;
+    }
+
+    /* ── ARTICLE BODY ── */
+    h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-top: 52px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    p { margin-bottom: 20px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 500; color: var(--text-2); }
+
+    /* ── PULL QUOTE ── */
+    blockquote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: var(--amber-lt);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+    }
+
+    blockquote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      color: var(--text-2);
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* ── AUDIENCE CARDS ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .audience-card {
+      background: var(--off);
+      border: 1px solid var(--sep);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .audience-card .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .audience-card p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── DIFFERENTIATOR STRIP ── */
+    .diff-strip {
+      margin: 32px 0;
+      padding: 24px 28px;
+      border: 1px solid var(--sep);
+      border-radius: 10px;
+      background: var(--off);
+    }
+
+    .diff-strip .diff-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .diff-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .diff-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
+    .diff-list li::before {
+      content: "✓";
+      color: var(--amber);
+      font-weight: 500;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── EXERCISE FEATURE GRID ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .feature-card {
+      background: var(--off);
+      border: 1px solid var(--sep);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-card .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border: 1px solid var(--sep);
+      flex-shrink: 0;
+    }
+
+    .feature-card .feature-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .feature-card .feature-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── MISTAKES BANK CALLOUT ── */
+    .mistakes-callout {
+      margin: 32px 0;
+      padding: 28px 28px 24px;
+      background: var(--navy);
+      border-radius: 12px;
+    }
+
+    .mistakes-callout .callout-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .mistakes-callout h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .mistakes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mistake-tag {
+      background: rgba(255,253,249,0.07);
+      border: 1px solid rgba(255,253,249,0.11);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .mistake-tag .tag-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+
+    .mistake-tag p {
+      font-size: 12px;
+      color: rgba(255,253,249,0.5);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── INLINE HINDI ── */
+    .hindi {
+      font-family: var(--font-display);
+      font-size: 1.1em;
+      color: var(--amber-dk);
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      margin-top: 56px;
+      padding: 40px;
+      background: var(--navy);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .cta-block .cta-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .cta-block h3 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cta-block p {
+      font-size: 15px;
+      color: rgba(255,253,249,0.6);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--amber-dk); }
+
+    .cta-sub {
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(255,253,249,0.35) !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { margin-top: 56px; }
+    .faq-section h2 { margin-top: 0; margin-bottom: 24px; }
+
+    .faq-item {
+      border-top: 1px solid var(--sep);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--sep);
+      margin-bottom: 0;
+    }
+
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-icon {
+      color: var(--amber);
+      font-size: 20px;
+      font-weight: 300;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform 0.2s;
+      font-family: var(--font-body);
+    }
+
+    details[open] .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.7;
+      padding-top: 4px;
+      padding-right: 32px;
+    }
+
+    .faq-answer p { margin-bottom: 0; color: var(--text-2); }
+
+    /* ── FOOTER ── */
+    .article-footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--sep);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .article-footer .back-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-footer .back-link:hover { color: var(--amber); }
+
+    .share-note { font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0 20px; }
+      .article-wrap { padding: 40px 20px 72px; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .mistakes-grid { grid-template-columns: 1fr; }
+      .cta-block { padding: 28px 24px; }
+      .site-footer { padding: 32px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a href="https://tech.petalbe.com/mera.html" class="wordmark">
+    <span class="wordmark-deva">मेरा</span> Mera
+  </a>
+  <a href="https://apps.apple.com/app/mera-hindi-vocabulary/id6758673305" target="_blank" rel="noopener">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height: 28px; display: block;" />
+  </a>
+</nav>
+
+<!-- ── ARTICLE ── -->
+<main class="article-wrap">
+
+  <div class="breadcrumb">
+    <a href="https://tech.petalbe.com/mera.html">Mera</a>
+    <span class="sep">›</span>
+    <a href="https://tech.petalbe.com/mera/blog">Blog</a>
+    <span class="sep">›</span>
+    <span>How to remember Hindi vocabulary</span>
+  </div>
+
+  <header class="article-header">
+    <div class="article-tag">Language Learning</div>
+    <h1>How to actually remember the Hindi vocabulary you're learning</h1>
+    <p class="article-intro">Most Hindi learners don't have a learning problem. They have a remembering problem. Here's what's actually going on — and how a rainy Sunday afternoon approach to vocabulary review is quietly working against you.</p>
+  </header>
+
+  <p>You know the feeling. You're having your Hindi lesson with your tutor. In addition to all the grammar rules, you're learning ten new words every session. You walk out and plan to review them every day. But then one day passes and you didn't find the time. The second day starts and you're already thinking that you'd need to scroll through a full page of exercise sentences in your Google Sheets document just to find those new words. And since this pattern is not new, you'd actually have to go through multiple pages — where do you even start?</p>
+
+  <p>Then you muster the courage, on a rainy Sunday afternoon, and add all those words to a list. You start reading through them, and by number 30 you're tired and start thinking that there must be a better way.</p>
+
+  <p>There is. And once you understand how memory actually works, it starts to make a lot of sense.</p>
+
+  <h2>Why words don't stick</h2>
+
+  <p>So what does science have to say? Well, first of all, the brain doesn't store everything it encounters. And even if it stores something, it tends to lose it again if not refreshed regularly. Researchers call this <strong>the forgetting curve</strong>. Memory decays on a predictable schedule, dropping steeply in the first few days after learning something new.</p>
+
+  <p>The fix kinda lies in the same automatism. The same way the brain forgets, it remembers — it stores things it encounters repeatedly, spaced out over time. So it's not about studying harder. It's about studying smarter. Review the word at the right moment — just before you'd forget it. Once after a day. Again after three days. Again after a week. After that, the word tends to stick.</p>
+
+  <blockquote>
+    <p>Twenty words practised consistently will serve you better than two hundred words reviewed once and never again.</p>
+  </blockquote>
+
+  <p>This system is called <strong>spaced repetition</strong>, and it's well established in language learning research. Most serious learning apps use it. Mera does too.</p>
+
+  <h2>The problem with Hindi learning apps</h2>
+
+  <p>Speaking of apps — I tried a bunch of them. Every single one starts by teaching Devanagari. But I wanted to learn conversational Hindi first and maybe add the script later. So many of my Indian friends speak Hindi fluently but cannot read or write it. And they don't need to! So those apps were off the table.</p>
+
+  <p>What about general flashcard or exercise apps? I tried a few of those too. The onboarding is long and tedious, there's usually only one or two exercise types, and since they're not language-specific, there's no safety net when uploading content. What if I want to learn Devanagari at some point? No support for that. No help with pronunciation. No automation when adding new words. It's just you, a text field, and the hope that you typed everything correctly.</p>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="label">Tutor students</div>
+      <p>Your tutor on Preply or iTalki assigns vocabulary specific to your level and your conversations. No app has those words.</p>
+    </div>
+    <div class="audience-card">
+      <div class="label">Self-learners</div>
+      <p>You're working through a textbook, watching Hindi films, or following a YouTube course. Each source teaches different words.</p>
+    </div>
+    <div class="audience-card">
+      <div class="label">Heritage learners</div>
+      <p>You grew up hearing Hindi at home — from a <span class="hindi">नानी</span> (nani) or <span class="hindi">दादा</span> (dada) — and want to move from understanding to speaking.</p>
+    </div>
+    <div class="audience-card">
+      <div class="label">Family & partners</div>
+      <p>Your partner or their family speaks Hindi. You hear certain words constantly and want to actually learn them.</p>
+    </div>
+  </div>
+
+  <p>What all of these situations have in common: the vocabulary that matters most to you isn't in any app's preset list. It's yours — specific to your life, your conversations, your learning path.</p>
+
+  <h2>Why I built Mera</h2>
+
+  <p>I was stuck in exactly this situation — learning Hindi with a tutor on Preply, collecting new words every week, and watching them disappear before the next session. Paper flashcards got left at home. Generic apps had their vocabulary, not mine. So I built Mera.</p>
+
+  <p>Mera is built around your vocabulary, not a preset curriculum. Roman script by default — so you can focus on the words without Devanagari as a prerequisite. And multiple exercise types that go well beyond flashcards, including a gender quiz built specifically for Hindi nouns.</p>
+
+  <p>That last one matters more than it sounds. Hindi nouns are gendered — <span class="hindi">ladka</span> (boy) is masculine, <span class="hindi">ladki</span> (girl) is feminine — and getting the gender right affects how every verb and adjective around it behaves. Most apps ignore this entirely. Mera tracks gender knowledge separately from your overall word mastery, so you always know exactly where you stand.</p>
+
+  <h2>Five ways to practise — or just let Mera decide</h2>
+
+  <p>One of the most effective things you can do for retention is encounter the same word in different contexts. Mera has five exercise types, each asking something different of your memory:</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="16" height="18" rx="3" fill="#F5A623" opacity="0.85"/>
+          <rect x="8" y="2" width="16" height="18" rx="3" fill="#E8732A"/>
+        </svg>
+      </span>
+      <div class="feature-text">
+        <div class="feature-name">Flashcards</div>
+        <p>Classic flip-card practice in both directions. Good for initial exposure and warm-up.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="9" r="3" stroke="#34C759" stroke-width="2"/>
+          <circle cx="7" cy="19" r="3" stroke="#34C759" stroke-width="2"/>
+          <circle cx="7" cy="9" r="1.2" fill="#34C759"/>
+          <line x1="13" y1="9" x2="24" y2="9" stroke="#34C759" stroke-width="2" stroke-linecap="round"/>
+          <line x1="13" y1="19" x2="24" y2="19" stroke="#34C759" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="4,9 6.5,11.5 11,6" stroke="#34C759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      <div class="feature-text">
+        <div class="feature-name">Multiple Choice</div>
+        <p>Recognition-based learning — pick the right answer from four options, in either direction.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="11" width="3" height="6" rx="1.5" fill="#AF52DE"/>
+          <rect x="6" y="7" width="3" height="14" rx="1.5" fill="#AF52DE"/>
+          <rect x="11" y="4" width="3" height="20" rx="1.5" fill="#AF52DE"/>
+          <rect x="16" y="7" width="3" height="14" rx="1.5" fill="#AF52DE"/>
+          <rect x="21" y="11" width="3" height="6" rx="1.5" fill="#AF52DE"/>
+        </svg>
+      </span>
+      <div class="feature-text">
+        <div class="feature-name">Matching</div>
+        <p>Connect Hindi words with their English meanings. Fast-paced and good for consolidating a set.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="8" width="24" height="14" rx="3" stroke="#007AFF" stroke-width="2"/>
+          <rect x="5" y="12" width="4" height="3" rx="1" fill="#007AFF"/>
+          <rect x="11" y="12" width="4" height="3" rx="1" fill="#007AFF"/>
+          <rect x="17" y="12" width="4" height="3" rx="1" fill="#007AFF"/>
+          <rect x="8" y="17" width="10" height="3" rx="1" fill="#007AFF"/>
+        </svg>
+      </span>
+      <div class="feature-text">
+        <div class="feature-name">Type the Answer</div>
+        <p>Spelling from memory. Only appears once a word is well on its way to mastered.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="11" stroke="#32ADE6" stroke-width="2"/>
+          <path d="M11 11C11 9.34 12.34 8 14 8C15.66 8 17 9.34 17 11C17 12.66 15.66 14 14 14V16" stroke="#32ADE6" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="14" cy="19.5" r="1.2" fill="#32ADE6"/>
+        </svg>
+      </span>
+      <div class="feature-text">
+        <div class="feature-name">Gender Quiz</div>
+        <p>Masculine or feminine? Gender is tracked separately from your overall word mastery.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>These five exercise types are available any time from the All Exercises screen — pick whichever you feel like, and Mera will pull in a set of words based on where you are with your mastery.</p>
+
+  <p>But for most days, you don't need to choose at all. That's what <strong>Daily Mix</strong> is for. From the home screen, you set how many words you want to practice — the default is 20, but you can go as low as 5 or as high as 100. Tap Daily Mix and Mera takes it from there: it picks a connected set of words (all your Home &amp; Living vocabulary, say, or all your colours) and takes you through a rotating mix of exercises to practice that set from different angles. No decisions required. Just show up.</p>
+
+  <h2>Know exactly where you're struggling</h2>
+
+  <p>Generic spaced repetition tells you <em>when</em> to review a word. But it doesn't always tell you <em>why</em> you keep getting it wrong — or help you zero in on the words that need the most work.</p>
+
+  <p>Mera has a Mistakes Bank that automatically organises your problem words into four categories:</p>
+
+  <div class="mistakes-callout">
+    <div class="callout-label">Mistakes Bank</div>
+    <h3>Focus on the words that need it most</h3>
+    <div class="mistakes-grid">
+      <div class="mistake-tag">
+        <div class="tag-title">Just Failed</div>
+        <p>Words you got wrong in your most recent session.</p>
+      </div>
+      <div class="mistake-tag">
+        <div class="tag-title">Frequently Missed</div>
+        <p>Three or more failures — your toughest words.</p>
+      </div>
+      <div class="mistake-tag">
+        <div class="tag-title">Gender Confusion</div>
+        <p>Nouns where you keep mixing up masculine and feminine.</p>
+      </div>
+      <div class="mistake-tag">
+        <div class="tag-title">Nearly There</div>
+        <p>50–70% accuracy — one push away from mastered.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>This matters because the words you keep failing aren't usually random. Having them grouped means you can go straight to the problem rather than waiting for the algorithm to surface them again.</p>
+
+  <h2>The simplest system that works</h2>
+
+  <p>After a lesson, add the new words to Mera. Include the Hindi, the English, and if you have it, an example sentence from your lesson — those are worth their weight in gold for remembering context later.</p>
+
+  <p>Then open the app each day and tap Daily Mix. Not two hours on Sunday. Five to ten minutes daily. The consistency is the whole point.</p>
+
+  <p>That's genuinely it. Mera handles the spaced repetition schedule, surfaces the right words at the right time, and flags the ones you keep getting wrong. You just have to show up.</p>
+
+  <p>It sounds almost too simple. But the learners who actually retain vocabulary aren't doing anything exotic — they're just reviewing their words regularly, in a way that matches how memory works. Turns out the rainy Sunday afternoon method doesn't.</p>
+
+  <!-- ── FAQ ── -->
+  <section class="faq-section">
+    <h2>Frequently asked questions</h2>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        What is the best app for practising vocabulary from a Hindi tutor?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Mera is an iPhone app built specifically for this. Unlike preset vocabulary apps, Mera lets you add the words your tutor assigns and drills you on them using spaced repetition and five exercise types — flashcards, matching, multiple choice, typing, and gender quiz. It's free and requires no account.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        How do I remember Hindi vocabulary between lessons?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>The most effective method is spaced repetition — reviewing words at increasing intervals just before you'd forget them. After a lesson, add new vocabulary to a flashcard app and practise for five to ten minutes daily. Consistency matters far more than long study sessions. Apps like Mera handle the scheduling automatically so you don't have to track it manually.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Can I use my own vocabulary in a Hindi flashcard app?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Most Hindi apps only offer preset word lists. Mera is different — it's built entirely around your own vocabulary. You add whatever words you're learning, from any source, and the app creates exercises from them. There's no built-in curriculum and no words you didn't choose.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        How long does it take to memorise Hindi vocabulary?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>With spaced repetition, most learners find that a new word becomes reliably memorable after five to seven correctly-spaced reviews over two to three weeks. Practising five to ten minutes daily is more effective than longer, infrequent sessions. Twenty words practised consistently will stick better than two hundred words reviewed once.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        Should I learn Hindi in Roman script or Devanagari?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>For conversational learners, starting in Roman script is completely valid and how most tutor-led learners begin. The priority is getting comfortable with the words themselves. Devanagari can be added once the vocabulary feels natural. Switching scripts mid-learning adds friction that can slow progress.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        What is a Mistakes Bank in a vocabulary app?
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>A Mistakes Bank automatically groups words you're struggling with into categories — words you just got wrong, words you fail repeatedly, words where you confuse gender, and words you're close to getting right. Instead of reviewing everything randomly, you can focus exactly where you need it most. Mera includes a Mistakes Bank as part of its free features.</p>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- ── CTA ── -->
+  <div class="cta-block">
+    <div class="cta-label">Free on iPhone</div>
+    <h3>Stop losing the words your tutor teaches you</h3>
+    <p>Add your vocabulary, practise in five different ways, and let the Mistakes Bank show you exactly where to focus. No preset curriculum, no account required.</p>
+    <a href="https://apps.apple.com/app/mera-hindi-vocabulary/id6758673305" class="cta-btn">Download Mera free</a>
+    <p class="cta-sub">Free · iPhone only · No account required</p>
+  </div>
+
+  <div class="article-footer">
+    <a href="https://tech.petalbe.com/mera.html" class="back-link">← Back to Mera</a>
+    <span class="share-note">Found this useful? Share it with a fellow Hindi learner.</span>
+  </div>
+
+</main>
+
+<!-- ══ SITE FOOTER ══ -->
+<footer class="site-footer">
+  <span class="footer-logo">मेरा · Mera</span>
+  <div class="footer-links">
+    <a href="https://tech.petalbe.com/impressum.html">Impressum</a>
+    <a href="https://tech.petalbe.com/privacypolicy.html">Privacy Policy</a>
+    <a href="https://tech.petalbe.com/terms.html">Terms of Use</a>
+  </div>
+  <p>&copy; 2026 Petalbe Technologies. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ── -->
+  <title>Blog — Hindi Learning Tips & Guides | Mera</title>
+  <meta name="description" content="Practical guides for Hindi learners — how to build vocabulary, work with tutors, and actually remember what you learn.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tech.petalbe.com/mera/blog">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:title" content="Blog — Hindi Learning Tips & Guides | Mera">
+  <meta property="og:description" content="Practical guides for Hindi learners — how to build vocabulary, work with tutors, and actually remember what you learn.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tech.petalbe.com/mera/blog">
+  <meta property="og:site_name" content="Mera — Hindi Vocabulary">
+
+  <!-- ── Schema.org ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Mera — Hindi Learning Blog",
+    "description": "Practical guides for Hindi learners — how to build vocabulary, work with tutors, and actually remember what you learn.",
+    "url": "https://tech.petalbe.com/mera/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Petalbe Technologies",
+      "url": "https://tech.petalbe.com"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --amber:    #E8732A;
+      --amber-lt: #FDF1E8;
+      --amber-dk: #B85A1A;
+      --navy:     #0F2D3A;
+      --navy-mid: #1E4A5C;
+      --white:    #FFFDF9;
+      --off:      #FAF7F2;
+      --text:     #1A1410;
+      --text-2:   #3D2E22;
+      --muted:    #7A6A5A;
+      --sep:      #E8E0D5;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "DM Sans", -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--sep);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-nav .wordmark {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .site-nav .wordmark span { color: var(--amber); }
+
+    .nav-cta {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--amber);
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--amber-dk); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .page-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    /* ── ARTICLE LIST ── */
+    .article-list {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 96px;
+    }
+
+    /* ── ARTICLE CARD ── */
+    .article-card {
+      display: block;
+      text-decoration: none;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--sep);
+      transition: none;
+    }
+
+    .article-card:last-child { border-bottom: none; }
+
+    .article-card:hover .card-title {
+      color: var(--amber);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--amber-dk);
+      background: var(--amber-lt);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .card-date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .card-excerpt {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 16px;
+      max-width: 560px;
+    }
+
+    .card-read-more {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-arrow {
+      transition: transform 0.2s;
+    }
+
+    .article-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ── COMING SOON CARD ── */
+    .coming-soon-card {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--sep);
+      opacity: 0.45;
+    }
+
+    .coming-soon-card .card-tag {
+      background: var(--off);
+      color: var(--muted);
+    }
+
+    .coming-soon-card .card-title {
+      color: var(--muted);
+    }
+
+    .coming-soon-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── APP CTA STRIP ── */
+    .cta-strip {
+      background: var(--off);
+      border-top: 1px solid var(--sep);
+      border-bottom: 1px solid var(--sep);
+      padding: 40px 24px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .cta-strip p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .cta-strip p strong {
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--amber-dk); }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0 20px; }
+      .page-header { padding: 40px 20px 36px; }
+      .article-list { padding: 0 20px 72px; }
+      .card-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a href="https://tech.petalbe.com/mera.html" class="wordmark">me<span>ra</span></a>
+  <a href="https://apps.apple.com/app/mera-hindi-vocabulary/id6758673305" class="nav-cta">Download free</a>
+</nav>
+
+<!-- ── HEADER ── -->
+<header class="page-header">
+  <div class="page-tag">Mera · Blog</div>
+  <h1>Hindi learning,<br>practically speaking</h1>
+  <p>Guides for people learning Hindi outside of an app — with a tutor, from a book, through family, or on your own terms.</p>
+</header>
+
+<!-- ── ARTICLE LIST ── -->
+<main class="article-list">
+
+  <!-- Article 1 — published -->
+  <a class="article-card" href="https://tech.petalbe.com/mera/blog/how-to-remember-hindi-vocabulary">
+    <div class="card-meta">
+      <span class="card-tag">Vocabulary</span>
+      <!-- Update this date when you publish -->
+      <span class="card-date">2025</span>
+    </div>
+    <div class="card-title">How to actually remember the Hindi vocabulary you're learning</div>
+    <div class="card-excerpt">Most Hindi learners don't have a learning problem — they have a remembering problem. Here's why vocabulary disappears between lessons, and what the research says actually helps.</div>
+    <div class="card-read-more">
+      Read article <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <!-- Coming soon placeholders — replace as you write them -->
+  <div class="coming-soon-card">
+    <div class="card-meta">
+      <span class="card-tag">Tutors</span>
+    </div>
+    <div class="card-title">How to get more out of your Hindi tutor sessions</div>
+    <div class="card-excerpt">What to do before, during, and after a lesson to make sure vocabulary actually sticks.</div>
+    <div class="coming-soon-label">Coming soon</div>
+  </div>
+
+  <div class="coming-soon-card">
+    <div class="card-meta">
+      <span class="card-tag">Heritage</span>
+    </div>
+    <div class="card-title">Reclaiming your heritage language as an adult</div>
+    <div class="card-excerpt">You grew up hearing Hindi. Now you want to speak it. Where to start when the words are half-remembered.</div>
+    <div class="coming-soon-label">Coming soon</div>
+  </div>
+
+  <div class="coming-soon-card">
+    <div class="card-meta">
+      <span class="card-tag">Self-study</span>
+    </div>
+    <div class="card-title">The best free resources for learning Hindi in 2025</div>
+    <div class="card-excerpt">A practical list of what actually works — YouTube channels, podcasts, textbooks — and how to combine them.</div>
+    <div class="coming-soon-label">Coming soon</div>
+  </div>
+
+</main>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <p><strong>Ready to practice?</strong> Mera lets you add vocabulary from any source and drills you on it with spaced repetition. Free on iPhone, no account required.</p>
+  <a href="https://apps.apple.com/app/mera-hindi-vocabulary/id6758673305" class="cta-btn">Download Mera free</a>
+</div>
+
+</body>
+</html>
